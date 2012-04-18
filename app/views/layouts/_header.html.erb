@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Auth</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<div id="header_bar">
+	<a href="/" id="logo"></a>
+	<div id="header_bar_container">
+		<div class="float_box">
+		    <p id="logged_in">
+		        <% if current_user %>
+		        <p id="logged_in">Logged in as <a><%= current_user.email %></a></p>
+		        <% else %>
+		        <p id="not_logged_in">Not Logged In</p>
+		        <% end %>
+		    </p>
+		    <div class="clear"></div>
+            <ul id="header_navigation">
+                <% if current_user %>
+                    <li><%= link_to "Dashboard", "#" %></li> | 
+                    <% if current_user.email == "admin" %>
+                    <li><%= link_to "Admin", "#" %></li> | 
+                    <% end %>
+                    <li><%= link_to "Logout", log_out_path %></li>
+                <% end %>
+            </ul>
+            </div>
+        </div>
+        <div class="clear"></div>
+    </div>
+</div>

@@ -1,0 +1,22 @@
+<div id="login_box">
+<h1>Login to Contract Builder</h1>
+<%= form_tag(sessions_path, :id => 'login_form') do %>
+
+        <%= label_tag :email %>
+        <%= text_field_tag :email, params[:email] %>
+        
+        <div class="clear"></div>
+
+        <%= label_tag :password %>
+        <%= password_field_tag :password %>
+        
+        <div class="clear"></div>
+
+        <%= label_tag %>
+        <%= submit_tag('',:id=>'login_button') %>
+        
+        <div class="clear"></div>
+        
+<% end %>
+</div>
+<div class="clear"></div>
