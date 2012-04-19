@@ -1,7 +1,7 @@
 <div id="login_box">
 <h1>Login to Contract Builder</h1>
 <%= form_tag(sessions_path, :id => 'login_form') do %>
-
+        <%= flash_helper %>
         <%= label_tag :email %>
         <%= text_field_tag :email, params[:email] %>
         

@@ -1,14 +1,15 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Auth</title>
+  <title><%= title %></title>
+  <%= favicon_link_tag %>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
 <div id="header_bar">
-	<a href="/" id="logo"></a>
+		<%= link_to "",root_url,:id => "logo" %>
 	<div id="header_bar_container">
 		<div class="float_box">
 		    <p id="logged_in">
