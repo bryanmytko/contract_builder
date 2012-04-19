@@ -1,0 +1,6 @@
+--- 
+cursor_positions: 
+  - :path: app/views/dashboard/index.html.erb
+    :cursor_offset: 859
+    :timestamp: 2012-04-19 12:29:49 -04:00
+files_to_retain: 0

@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  contract_id: 1
+  saved_state: MyString
+  hourly_rate: MyString
+
+two:
+  contract_id: 1
+  saved_state: MyString
+  hourly_rate: MyString

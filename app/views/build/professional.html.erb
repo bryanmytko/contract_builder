@@ -1,0 +1,15 @@
+hi. pro. 
+
+<%= @contract.name %>
+
+
+
+<%= form_tag(build_hourly_path, :method => 'hourly') do %>
+  <div class="field">
+    <%= label_tag :hourly_rate %><br />
+    <%= text_field_tag :hourly_rate %>
+  </div>
+  <div class="actions">
+    <%= submit_tag %>
+  </div>
+<% end %>

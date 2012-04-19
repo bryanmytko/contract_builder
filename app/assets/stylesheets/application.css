@@ -69,8 +69,9 @@ div#dashboard tr td { color: #666; font-size: 13px; font-weight: normal; border-
 div#dashboard div#archive a.dashboard_archive { background: url(../img/archive_buttons.png) 0 0; width: 85px; height: 33px; display: block; }
 div#dashboard div#archive a.dashboard_archive:hover { background-position: 0 bottom; cursor: pointer;}
 
-div#dashboard a#show_WR { cursor: pointer; display: block; background: #0072bc; height: 16px; color: #fff; text-decoration: none; font-weight: bold; padding: 12px; -webkit-border-top-left-radius: 8px; -webkit-border-top-right-radius: 8px; -moz-border-top-right-radius: 8px; -moz-border-top-left-radius: 8px; border-top-right-radius: 8px; border-top-left-radius: 8px; float: left; }
-div#dashboard a#show_P { cursor: pointer; display: block; background: #0072bc;  height: 16px; color: #fff; text-decoration: none; font-weight: bold; padding: 12px; -webkit-border-top-left-radius: 8px; -webkit-border-top-right-radius: 8px; -moz-border-top-right-radius: 8px; -moz-border-top-left-radius: 8px; border-top-right-radius: 8px; border-top-left-radius: 8px; float: left; }
+div#dashboard a#show_webready { cursor: pointer; display: block; background: #0072bc; height: 16px; color: #fff; text-decoration: none; font-weight: bold; padding: 12px; -webkit-border-top-left-radius: 8px; -webkit-border-top-right-radius: 8px; -moz-border-top-right-radius: 8px; -moz-border-top-left-radius: 8px; border-top-right-radius: 8px; border-top-left-radius: 8px; float: left; }
+
+div#dashboard a#show_professional { cursor: pointer; display: block; background: #0072bc;  height: 16px; color: #fff; text-decoration: none; font-weight: bold; padding: 12px; -webkit-border-top-left-radius: 8px; -webkit-border-top-right-radius: 8px; -moz-border-top-right-radius: 8px; -moz-border-top-left-radius: 8px; border-top-right-radius: 8px; border-top-left-radius: 8px; float: left; }
 div#dashboard a.dim { background: #6da8d7 !important; }
 div#dashboard .hide { display: none; }
 

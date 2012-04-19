@@ -15,10 +15,15 @@ class ContractsController < ApplicationController
     def create
         @contract = Contract.new(params[:contract])
         if @contract.save
-            redirect_to dashboard_path
+            redirect_to build_new_path(:id => @contract.id)
         else
             abort("didn't save")
         end
+    end
+    
+    def build
+    		abort(:id)
+    		#render @contract.contract_type + '_build'
     end
 
 end
