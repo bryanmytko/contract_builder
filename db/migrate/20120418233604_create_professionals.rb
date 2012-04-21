@@ -7,7 +7,7 @@ class CreateProfessionals < ActiveRecord::Migration
       t.string :email
       t.string :phone
       t.string :url
-      t.string :type
+      t.string :contract_type
 
       t.timestamps
     end

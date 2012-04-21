@@ -1,0 +1,39 @@
+<div id="new_contract_box" class="edit_client">
+<h1>Create Contract</h1>
+<%= form_for @contract do |p| %>
+
+    <%= p.hidden_field(:contract_type, :value => params[:action]) %>
+
+    <%= p.label(:company,"Company Name:") %>
+    <%= p.text_field :company %>
+        
+    <div class="clear"></div>
+    
+    <%= p.label(:address,"Company Address:") %>
+    <%= p.text_field :address %>
+    
+    <div class="clear"></div>
+    
+    <%= p.label(:name,"Contact Name:") %>
+    <%= p.text_field :name %>
+    
+    <div class="clear"></div>
+    
+    <%= p.label(:email,"Email:") %>
+    <%= p.text_field :email %>
+    
+    <div class="clear"></div>
+    
+    <%= p.label(:phone,"Phone:") %>
+    <%= p.text_field :phone %>
+    
+    <div class="clear"></div>
+    
+    <%= label_tag %>
+    <%= submit_tag('',:id=>'save') %>
+    
+    <div class="clear"></div>
+    
+<% end %>
+</div>
+<div class="clear"></div>

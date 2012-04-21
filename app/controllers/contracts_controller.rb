@@ -3,13 +3,11 @@ class ContractsController < ApplicationController
     def professional
        @contract = Contract.new
        @type = request.path
-       render :action => 'new.html.erb'
     end
     
     def webready
         @contract = Contract.new
         @type = request.path
-        render :action => 'new.html.erb'
     end
 
     def create
@@ -19,6 +17,10 @@ class ContractsController < ApplicationController
         else
             abort("didn't save")
         end
+    end
+    
+    def edit
+    	@contract = Contract.find(params[:id])
     end
     
     def build
