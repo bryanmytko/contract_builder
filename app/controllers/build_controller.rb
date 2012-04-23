@@ -9,17 +9,18 @@ class BuildController < ApplicationController
 	
 	def new
 		@contract = Contract.find(params[:id])
-		@build = Build.create(:contract_id => params[:id])
+		@build = Build.create(:contract_id => params[:id], :hourly_rate => '150')
 		@designs = ProfessionalTemplate.find_all_by_page_type(:design)
 		render "professional"
 	end
 	
+	#why is it using a new build every time for edits. 
 	def hourly
-		@test = params[:hourly_rate]
-		@build = Build.find_all_by_contract_id(params[:id])
-		@build.update_attributes(:hourly_rate => params[:hourly_rate])
 		@contract = Contract.find(params[:id])
-		render "professional"
+		@build = Build.find_by_contract_id(@contract.id)
+		if @build.update_attributes(params[:build])
+			redirect_to root_url_path
+		end
 	end
 		
 	

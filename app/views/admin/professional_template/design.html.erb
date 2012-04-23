@@ -1,0 +1,63 @@
+<div id="admin_pages" class="page_pages">
+<h1>Design Section</h1>
+	<div class="default_show default_pages_form">
+	</div>
+	<% @templates.each do |t| %>
+	
+		<div class="admin_record admin_edit">
+	
+		<%= form_for [:admin, t], :html => { :class => 'update', :method => :put } do |f| %>
+
+		<%= f.hidden_field(:id) %>
+
+		<%= f.label(:name, "Name: ") %>
+		
+		<div class="input_wrapper_name">
+		<%= f.text_field(:name, :class => 'name') %>
+		</div>
+		
+		<%= f.label(:hours, 'Design Hours: ') %>
+		<div class="input_wrapper">
+		<%= f.text_field(:hours) %>
+		</div>
+		
+		<%= submit_tag('', :class => 'update_button') %>
+		<%= submit_tag('', :class => 'delete_button delete_button_professional') %>
+		
+		<div class="clear"></div>
+		
+		<div class="desc_box" style="display: block;">
+
+		</div>
+		
+		</div>
+
+		<% end %>
+		
+	<% end %>
+
+	<div class="new_page_form new_page admin_record">
+
+	<%= form_for [:admin, @new_template], :url => admin_professional_template_index_path, :html => { :id => 'p_form'} do |n| %>
+
+	<%= n.hidden_field(:page_type, :value => 'design') %>
+	<%= n.label(:name, 'Name: ') %>
+	<div class="input_wrapper_name">
+	<%= n.text_field(:name, :class => 'name') %>
+	</div>
+	<%= n.label(:hours) %>
+	<div class="input_wrapper">
+	<%= n.text_field(:hours, :class => 'inhours') %>
+	</div>
+	<%= submit_tag('', :class => 'page_add_button') %>
+	<div class="clear"></div>
+	<div class="desc_new desc_box">
+	<%= n.label(:description, 'Description: ') %>
+	<%= n.text_area(:description) %>
+	</div>
+	
+	<% end %>
+	
+	</div>
+	
+</div>

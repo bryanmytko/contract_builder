@@ -1,16 +1,19 @@
 <div id="pro_build_design">
 <h1>Design</h1>
 <table cellpadding="0" cellspacing="0">
-    <tr>
-        <th class="title"></th><th>Quantity</th><th>Design Hours</th><th>Total Cost</th>
-    </tr>
+  <tr>
+      <th class="title"></th><th>Quantity</th><th>Design Hours</th><th>Total Cost</th>
+  </tr>
 
+  <% @designs.each do |d| %>
 
-
-
-    <% @designs.each do |d| %>
-    <%= d.name %>
-    <% end %>
+	<tr><td><%= d.name %></td>
+	<td><input value="0" type="text" class="hours" name="design_Home_page_hours" /></td>
+	<td><span class="hours_text"><%= d.hours %></span></td>
+	<td><span class="price_text">$0.00<span></td>
+	</tr><tr><td>Unique Sub Page</td>
+	
+  <% end %>
     
 </table>
 </div>

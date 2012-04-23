@@ -51,7 +51,7 @@ module Auth
     # config.active_record.whitelist_attributes = true
 
     # Enable the asset pipeline
-#    config.assets.enabled = true
+    config.assets.enabled = true
 #    config.assets.debug = true
     config.assets.compress = false
     config.serve_static_assets = true
