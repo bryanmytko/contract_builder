@@ -3,14 +3,14 @@ class BuildController < ApplicationController
 	def edit
 		@contract = Contract.find(params[:id])
 		@build = Build.find_all_by_contract_id(@contract.id)
-		@designs = ProfessionalTemplate.find(1)
+		@designs = ProfessionalTemplate.find_all_by_page_type(:design)
 		render "professional"
 	end
 	
 	def new
 		@contract = Contract.find(params[:id])
 		@build = Build.create(:contract_id => params[:id])
-		@designs = ProfessionalTemplate.find_all_by_page_type('design')
+		@designs = ProfessionalTemplate.find_all_by_page_type(:design)
 		render "professional"
 	end
 	

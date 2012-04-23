@@ -11,16 +11,18 @@ Auth::Application.routes.draw do
   match 'build/:id', :to => 'build#edit', :as => "build_edit"
   match 'build/new/:id', :to => 'build#new', :as => "build_new"
   match 'build/hourly/:id', :to => 'build#hourly', :as => "build_hourly"
-  match 'admin/add_professional_template', :to => 'admin#add_professional_template', :as => 'add_professional_template'
-  match 'admin/create_professional_template', :to => 'admin#create_professional_template', :as => 'professional_templates'
+ # match 'admin/add_professional_template', :to => 'professional_templates', :as => 'add_professional_template'
   # This route can be invoked with purchase_url(:id => product.id)
   
   root :to => "sessions#new"
   
-  resources :users
-  resources :sessions
-  #resources :professionals
-  resources :contracts
-  #resources :admin
+  resources :users, :sessions, :contracts
+  
+  namespace :admin do
+  	root :to => "home#index"
+  	resources :professional_templates
+	end
+
+
 
 end
