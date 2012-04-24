@@ -16,7 +16,7 @@ Auth::Application.routes.draw do
   
   root :to => "sessions#new"
   
-  resources :users, :sessions, :contracts
+  resources :users, :sessions, :contracts, :build
   
   namespace :admin do
   	root :to => "home#index"

@@ -110,7 +110,7 @@ PLATFORMS
 DEPENDENCIES
   bcrypt-ruby
   coffee-rails (~> 3.2.1)
-  jquery-rails
+  jquery-rails (>= 0.2.7)
   pg
   rails (= 3.2.1)
   sass-rails (~> 3.2.3)

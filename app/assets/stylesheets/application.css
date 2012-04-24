@@ -132,7 +132,7 @@ div#build input.save_button:hover { background-position: -166px bottom; cursor: 
 div#build input.save_back_button { background: url(../img/build_buttons.png) 0 0 no-repeat; height: 41px; width: 155px; border: 0; float: left; margin-right: 12px; }
 div#build input.save_back_button:hover { background-position: 0 bottom; cursor: pointer; }
 
-div#build h1.hourly_h1 { width: 160px; float: left; padding: 6px 0 0 0; }
+div#build h1.hourly_h1 { width: 170px; float: left; padding: 6px 0 0 0; }
 div#build form#hourly_rate_form { float: left; display: block; vertical-align: baseline; }
 div#build form#hourly_rate_form input.hourly_rate { border: 1px solid #d1d1d1; height: 29px; width: 70px; padding: 5px; font-size: 18px; color: #666; float: left; margin-right: 10px;  }
 div#build form#hourly_rate_form input.hourly_rate_button { float: left; border: 0; width: 137px; height: 41px; background: url(../img/hourly_button.png) 0 0 no-repeat; }
@@ -207,11 +207,11 @@ div.admin_record input { width: 39px; padding: 10px 3px; }
 
 img.admin_design_thumb { width: 40px; height: 40px; float: left; margin: 14px 12px 0 0; border: 1px solid #bfbfbf; }
 
-div.admin_record input.update_button { width: 25px; height: 23px; background: url(../img/admin_controls.png) 0 0 no-repeat; margin: 0px 14px 0 0; }
+div.admin_record .update_button { float: left; width: 25px; height: 23px; background: url(../img/admin_controls.png) 0 0 no-repeat; margin: 23px 14px 0 0;display: block; }
 div.admin_record input.update_button:hover { background-position: 0 bottom; cursor: pointer; }
-div.admin_record input.delete_button { width: 25px; height: 23px; background: url(../img/admin_controls.png) right 0 no-repeat;  margin: 42px 0 0 0;  }
-div.admin_record input.delete_button_professional { margin: 21px 0 0 0 !important; }
-div.admin_record input.delete_button:hover { background-position: right bottom; cursor: pointer; }
+div.admin_record .delete_button { float: left; width: 25px; height: 23px; background: url(../img/admin_controls.png) right 0 no-repeat;  margin: 23px 14px 0 0; display:block;  }
+div.admin_record .delete_button_professional { margin: 21px 0 0 0 !important; display: block; }
+div.admin_record .delete_button:hover { background-position: right bottom; cursor: pointer; }
 div.admin_record form.update { margin: 0 0 0 32px; }
 div.default_pages_form, div.additional_pages_form, div.widgets_show, div.add_features_show {  border-top: 5px solid #0072bc; }
 div#admin_pages h1 {font-size: 24px; color: #0072bc; margin-bottom: 12px; }
@@ -232,6 +232,7 @@ margin-bottom: 6px;}
 /* Admin Pages */
 div#admin_pages input { border: 0; }
 div#admin_pages textarea { border: 1px solid #bfbfbf; margin: 0 0 0 9px; height: 60px; width: 730px; padding: 3px; }
+div#admin_pages textarea.hidden_text_area { display: none; }
 div#admin_pages div.desc_box { padding: 0 0 20px 0; display: none; }
 div#admin_pages div.desc_new { display: block; }
 div#admin_pages a.add_desc { font-size: 13px; color: #0072bc; text-decoration: none; padding: 6px 0 20px 0; display: block; }
@@ -301,7 +302,9 @@ div#ecomm_change a { text-decoration: none; color: #0072bc; }
 
 div#flash { background: #ff8700; color: #fff; padding: 4px 12px;  font-size: 14px;  }
 
-div#admin_pages ul { margin: 8px 8px 20px 20px; list-style-type: none; }
+div#admin_pages h3 { color: #ff6600; }
+div#admin_pages ul { margin: 8px 8px 20px 20px; color: #0072bc; }
+div#admin_pages ul li { margin: 8px 0; }
 
-
+div.cms_selection { display: none; }
 

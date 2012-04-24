@@ -1,0 +1,11 @@
+<div id="hourly_box">
+  <h1 class="hourly_h1">Hourly Rate: $</h1>
+	<%= form_for @build, :url => build_hourly_path, 
+										 :remote => true, 
+										 :html => { :id => 'hourly_rate_form', :method => :post } do |h| %>
+		<%= h.hidden_field(:id) %>
+		<%= h.text_field(:hourly_rate, :class => 'hourly_rate' ) %>
+		<%= submit_tag '', :class => 'hourly_rate_button' %>
+	<% end %>
+  <div class="clear"></div>
+</div>

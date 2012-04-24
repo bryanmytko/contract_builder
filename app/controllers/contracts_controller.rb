@@ -23,9 +23,12 @@ class ContractsController < ApplicationController
     	@contract = Contract.find(params[:id])
     end
     
-    def build
-    		abort(:id)
-    		#render @contract.contract_type + '_build'
+    def update
+    	@contract = Contract.find(params[:id])
+    	@contract.update_attributes(params[:contract])
+    	if @contract.save
+    		redirect_to '/dashboard'
+    	end
     end
-
+    
 end

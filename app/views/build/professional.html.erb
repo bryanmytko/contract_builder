@@ -1,61 +1,21 @@
+Using Build id #<%= @build.id %>
 <div id="build">
 	<div id="build_main">
-		<div id="pro_build_design">	
-		  <div id="hourly_box">
-		    <h1 class="hourly_h1">Hourly Rate: </h1>
-        <%= form_for @build, :url => build_hourly_path, :html => { :id => 'hourly_rate_form', :method => :post } do |h| %>
-        		<%= h.hidden_field(:id) %>
-						<%= h.text_field(:hourly_rate, :class => 'hourly_rate' ) %>
-						<%= submit_tag '', :class => 'hourly_rate_button' %>
-				<% end %>
-		    <div class="clear"></div>
-			</div>
+		<div id="pro_build_design">		
+		  <%= render 'build/professional/hourly' %>	  
 			<div class="clear"></div>
-			<form id="save_pro" name="save_pro" action="/build/save_pro/141" method="post">
-		    
+			<%= form_for @build, :html => { :id => 'save_pro' } do |b| %>		    
 			<%= render 'build/professional/design' %>
-			<%= render 'build/professional/frontend' %>
-
-		</div>
-		<input type="submit" class="save_button" value="" /> <!-- @TODO button -->
+			<%= render 'build/professional/frontend' %>			
+			<%= render 'build/professional/cms_selection' %>
+			<%= render 'build/professional/wm' %>
+			<%= render 'build/professional/wordpress' %>
+			<%= render 'build/professional/magento' %>
+		</div>	
+		<%= submit_tag "", :confirm => 'Are you sure?', :class => 'save_button' %>		
+		<% end %>
 	</div>
-	<div id="build_sidebar_professional">
-		<div class="clear"></div>
-    <h2>Contact Information</h2>
-		<p><strong>Company:</strong> <%= @contract.company %></p>				
-		<p><strong>Contact:</strong> <%= @contract.name %></p>
-		<p><strong>Address:</strong> <%= @contract.address %></p>				
-		<p><strong>Email:</strong> <%= @contract.email %></p>				
-		<p><strong>Phone:</strong> <%= @contract.phone %></p>				
-		<p><strong>Url:</strong> <%= @contract.url %></p>		
-				
-		<%= link_to "Edit",contracts_edit_path(:id => @contract.id) %>
-		
-		  <h2 id="sidebar_hourly_rate">Hourly Rate: <span></span> </h2>
-		  <table cellpadding="0" cellspacing="0">
-		  <tr><th>Component</th><th>Hours</th><th>Price</th></tr>
-		  <tr><td>Front End Design</td><td><span class="sidebar_design_hours_text"></span></td>
-		  <td><span class="sidebar_design_price_text"></span></td></tr>
-		  <tr><td>Front End Coding</td><td><span class="sidebar_coding_hours_text"></span></td>
-		  <td><span class="sidebar_coding_price_text"></span></td></tr>
-		  <tr><td>Features, Widgets, Content Management</td><td><span class="sidebar_features_hours_text"></span></td>
-		  <td><span class="sidebar_features_price_text"></span></td></tr>
-		  <tr><td>Ecommerce</td><td><span class="sidebar_ecomm_hours_text"></span></td>
-		  <td><span class="sidebar_ecomm_price_text"></span></td></tr>
-		  <tr><td>Planning & Discovery</td><td><span class="sidebar_planning_hours_text"></span></td>
-		  <td><span class="sidebar_planning_price_text"></span></td></tr>
-		  <tr><td>Quality Assurance</td><td><span class="sidebar_qa_hours_text"></span></td>
-		  <td><span class="sidebar_qa_price_text"></span></td></tr>
-		  <tr><td>Project Management & Consulting</td><td><span class="sidebar_pm_hours_text"></span></td>
-		  <td><span class="sidebar_pm_price_text"></span></td></tr>
-		  <tr class="total"><td>Total: </td><td><span class="sidebar_grand_hours_text"></span></td>
-		  <td><span class="sidebar_grand_price_text"></span></td></tr>
-		  </table>
-		  
-		  <input type="submit" name="output_html" class="output_html_button" value=""><!-- @TODO button -->
-		  
-		</form>
-		</div>
+	<%= render 'build/professional/sidebar' %>	
   </div>
   <div class="clear"></div>
 </div>

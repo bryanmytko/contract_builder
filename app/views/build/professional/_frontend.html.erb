@@ -1,8 +1,20 @@
 <div id="pro_build_fe">
 <h1>Front End Coding</h1>
-    <table cellpadding="0" cellspacing="0">
-    <tr>
-        <th class="title"></th><th>Quantity</th><th>Coding Hours</th><th>Total Cost</th>
-    </tr>
-    <tr><td>Widget Area</td><td><input value="0" type="text" class="hours" name="coding_Widget_Area_hours" /></td><td><span class="hours_text">28</span></td><td><span class="price_text"><span></td></tr>                </table>
+<table cellpadding="0" cellspacing="0">
+  <tr>
+      <th class="title"></th><th>Quantity</th><th>Design Hours</th><th>Total Cost</th>
+  </tr>
+
+  <% @front_end.each do |d| %>
+
+	<tr>
+	<td><%= d.name %></td>
+	<td><input value="0" type="text" class="hours" name="front_end_Home_page_hours" /></td>
+	<td><span class="hours_text"><%= d.hours %></span></td>
+	<td><span class="price_text">$0.00<span></td>
+	</tr>
+	
+  <% end %>
+    
+</table>
 </div>

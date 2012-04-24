@@ -1,27 +1,39 @@
 class Admin::ProfessionalTemplateController < ApplicationController
 
 def index
-	@templates = ProfessionalTemplate.find(:all)
+	@type = params[:page_type]
+	@templates = ProfessionalTemplate.find_all_by_page_type(@type)
 	@new_template = ProfessionalTemplate.new
-	if(params[:page_type] == 'design')
-		render :action => 'design'
-	end
+	render :action => @type
 end
 
 def create
 	@template = ProfessionalTemplate.new(params[:professional_template])
-	if @template.save
-		redirect_to admin_professional_template_index_path(:page_type => 'design')
-	end
+	@template.save
+	respond_to do |format|    
+		format.js
+  end
 end
 
 def edit
 end
 
+def show
+end
+
+def destroy
+	@template = ProfessionalTemplate.find(params[:id])
+	@template.destroy
+  respond_to do |format|    
+  	format.js
+  end 
+end
+
 def update
 	@template = ProfessionalTemplate.find(params[:id])
-	if @template.update_attributes(params[:professional_template])
-		redirect_to admin_professional_template_index_path(:page_type => 'design')
+	@template.update_attributes(params[:professional_template])
+  respond_to do |format|    
+  	format.js
 	end
 end
 	
