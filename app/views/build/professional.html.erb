@@ -8,9 +8,7 @@ Using Build id #<%= @build.id %>
 			<%= render 'build/professional/design' %>
 			<%= render 'build/professional/frontend' %>			
 			<%= render 'build/professional/cms_selection' %>
-			<%= render 'build/professional/wm' %>
-			<%= render 'build/professional/wordpress' %>
-			<%= render 'build/professional/magento' %>
+			<%= render :partial => 'build/professional/cms_pages', :locals => { :cms => @cms } %>
 		</div>	
 		<%= submit_tag "", :confirm => 'Are you sure?', :class => 'save_button' %>		
 		<% end %>

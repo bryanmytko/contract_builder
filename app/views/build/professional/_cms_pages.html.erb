@@ -1,0 +1,32 @@
+<% @cms.each do |k,v| %>
+<div id="<%= k %>" class="cms_selection">
+	<div id="pro_build_ecomm">                  
+		  <%= render 'build/professional/cms_revert' %>	  
+		  <div id="ecomm_magento_records" class="ecomm_container" style="display: block; ">
+		  <% featuresArray.each do |f| %>
+				<h3><%= f %></h3>
+				<table cellpadding="0" cellspacing="0">
+						<tbody>
+							<tr>
+							    <th class="title">Feature</th><th>Select</th><th>Hours</th><th>Cost</th>
+							</tr>
+							<% v.each do |m| %>
+								<% if f == m.feature_type %>
+								<tr>
+									<td><%= m.name %></td>
+									<td><input type="checkbox" name="f_cms_<%= m.name %>"></td>
+									<td><span class="hours_text"><%= m.hours %></span></td>
+									<td><span class="price_ecomm_text"><%= m.cost %><span></span></td>
+								</tr>
+								<% end %>
+							<% end %>
+						</tbody>
+					</table>
+			<% end %>
+			</div>
+	</div>
+</div>
+<% end %>
+
+
+

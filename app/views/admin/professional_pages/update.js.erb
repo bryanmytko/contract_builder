@@ -1,0 +1,16 @@
+$('.update_button').bind('ajax:success', function(data) {
+
+	$(this).closest('form').fadeOut().fadeIn();
+	
+	var id = $(this).parent().parent().find('#professional_page_id').val();
+	var hours = $(this).parent().parent().find('#professional_page_hours').val();
+	var n = $(this).parent().parent().find('#professional_page_name').val();
+	var cost = $(this).parent().parent().find('#professional_page_cost').val();
+	
+	$.ajax({
+		url: "professional_pages/" + id,
+		type: 'put',
+		data: '&professional_page[hours]=' + hours + '&professional_page[name]=' + n + '&professional_page[cost]=' + cost
+	});
+	
+});

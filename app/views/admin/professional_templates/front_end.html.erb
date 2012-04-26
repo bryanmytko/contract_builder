@@ -1,0 +1,66 @@
+<div id="admin_pages" class="page_pages">
+<h1>Front End Section</h1>
+	<div class="default_show default_pages_form">
+	</div>
+	<% @templates.each do |t| %>
+	
+		<div class="admin_record admin_edit">
+	
+		<%= form_for [:admin, t], :remote => true, :html => { :class => 'update', :method => :put } do |f| %>
+
+		<%= f.hidden_field(:id, :class => 'template_id') %>
+
+		<%= f.label(:name, "Name: ") %>
+		
+		<div class="input_wrapper_name">
+		<%= f.text_field(:name, :class => 'name') %>
+		</div>
+		
+		<%= f.label(:hours, 'Front End Hours: ') %>
+		<div class="input_wrapper">
+		<%= f.text_field(:hours) %>
+		</div>
+		
+		<%= link_to '', admin_professional_template_path(f.object.id), :method => :delete, :remote=>true, :class=>'delete_button' %>
+		<%= link_to '', admin_professional_template_path(f.object.id), :method => :put, :remote=>true, :class=>'update_button' %>
+		
+		<div class="clear"></div>
+		
+		<%= link_to 'Edit Description', '', :remote => true, :class => 'add_desc' %>
+		
+		<div class="desc_box" style="display: block;">
+		<%= f.text_area(:description, :class => 'hidden_text_area') %>
+		</div>
+		
+		</div>
+
+		<% end %>
+		
+	<% end %>
+
+	<div id="new_records"></div>
+	<div class="new_page_form new_page admin_record">
+
+	<%= form_for [:admin, @new_template], :remote => true, :url => admin_professional_templates_path, :html => { :id => 'p_form'} do |n| %>
+
+	<%= n.hidden_field(:page_type, :value => 'front_end') %>
+	<%= n.label(:name, 'Name: ') %>
+	<div class="input_wrapper_name">
+	<%= n.text_field(:name, :class => 'name') %>
+	</div>
+	<%= n.label(:hours) %>
+	<div class="input_wrapper">
+	<%= n.text_field(:hours, :class => 'inhours') %>
+	</div>
+	<%= submit_tag('', :class => 'page_add_button') %>
+	<div class="clear"></div>
+	<div class="desc_new desc_box">
+	<%= n.label(:description, 'Description: ') %>
+	<%= n.text_area(:description) %>
+	</div>
+	
+	<% end %>
+	
+	</div>
+	
+</div>

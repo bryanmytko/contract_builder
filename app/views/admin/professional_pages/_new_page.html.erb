@@ -1,0 +1,38 @@
+<div id="new_records"></div>
+<div class="new_page_form new_page admin_record">
+
+	<%= form_for [:admin, @new_page], :remote => true, 
+																		:url => admin_professional_pages_path, 
+																		:html => { :id => 'p_form'} do |n| 
+	%>
+
+	<%= n.hidden_field(:feature_type, :value => f) %>
+	<%= n.hidden_field(:cms_type, :value => @cms_type) %>
+	
+	<%= n.label(:name, 'Name: ') %>
+	<div class="input_wrapper_name">
+	<%= n.text_field(:name, :class => 'name') %>
+	</div>
+	
+	<%= n.label(:hours) %>
+	<div class="input_wrapper">
+	<%= n.text_field(:hours, :class => 'inhours') %>
+	</div>
+	
+	<%= n.label(:cost) %>
+	<div class="input_wrapper">
+	<%= n.text_field(:cost, :class => 'inhours') %>
+	</div>
+	
+	<%= submit_tag('', :class => 'page_add_button') %>
+	
+	<div class="clear"></div>
+	
+	<div class="desc_new desc_box">
+	<%= n.label(:description, 'Description: ') %>
+	<%= n.text_area(:description) %>
+	</div>
+
+	<% end %>
+
+</div>

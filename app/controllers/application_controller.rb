@@ -12,7 +12,7 @@ class ApplicationController < ActionController::Base
   
   def session_check
     if request.path == root_path && current_user #if home page, but logged in, always show dash
-        redirect_to dashboard_path
+        redirect_to dashboards_path
     elsif request.path == root_path && !current_user #if home page, not logged in, do nothing
         true
     elsif !current_user #any other page, no session? redirect to root

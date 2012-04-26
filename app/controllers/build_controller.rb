@@ -5,7 +5,11 @@ class BuildController < ApplicationController
 		@build = Build.find_by_contract_id(params[:id])
 		@designs = ProfessionalTemplate.find_all_by_page_type(:design)
 		@front_end = ProfessionalTemplate.find_all_by_page_type(:front_end)
-		render "professional"
+		@webmodulite = ProfessionalPage.find_all_by_cms_type(:webmodulite)
+		@magento = ProfessionalPage.find_all_by_cms_type(:magento)
+		@wordpress = ProfessionalPage.find_all_by_cms_type(:wordpress)
+		@cms = { 'webmodulite' => @webmodulite, 'magento' => @magento, 'wordpress' => @wordpress }
+		render @contract.contract_type
 	end
 	
 	def new
@@ -16,21 +20,25 @@ class BuildController < ApplicationController
 		else
 			@build = Build.find_by_contract_id(params[:id])
 		end
+		#make helpers for this stuff
 		@designs = ProfessionalTemplate.find_all_by_page_type(:design)
 		@front_end = ProfessionalTemplate.find_all_by_page_type(:front_end)
-		render "professional"
+		@webmodulite = ProfessionalPage.find_all_by_cms_type(:webmodulite)
+		@magento = ProfessionalPage.find_all_by_cms_type(:magento)
+		@wordpress = ProfessionalPage.find_all_by_cms_type(:wordpress)
+		@cms = { 'webmodulite' => @webmodulite, 'magento' => @magento, 'wordpress' => @wordpress }
+		render @contract.contract_type
 	end
 	
-	#not restful.. build a new controller?
-	def hourly
+	#updates hourly rate
+	def update
 		@contract = Contract.find(params[:id])
 		@build = Build.find_by_contract_id(@contract.id)
 		if @build.update_attributes(params[:build])
 			respond_to do |format|    
 				format.js
-  		end
+			end
 		end
 	end
-		
 	
 end

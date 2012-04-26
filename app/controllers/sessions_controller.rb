@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
     user = User.authenticate(params[:email],params[:password])
     if user
         session[:user_id] = user.id
-        redirect_to dashboard_path
+        redirect_to dashboards_path
     else
         redirect_to root_url, :notice => "Invalid email or password"
     end

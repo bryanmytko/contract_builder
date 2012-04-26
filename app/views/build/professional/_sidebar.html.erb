@@ -8,7 +8,7 @@
 		<p><strong>Phone:</strong> <%= @contract.phone %></p>				
 		<p><strong>Url:</strong> <%= @contract.url %></p>		
 				
-		<%= link_to "Edit",contracts_edit_path(:id => @contract.id) %>
+		<%= link_to "Edit",edit_contract_path(:id => @contract.id) %>
 		
 	  <h2 id="sidebar_hourly_rate">Hourly Rate: $<span></span> </h2>
 	  <table cellpadding="0" cellspacing="0">

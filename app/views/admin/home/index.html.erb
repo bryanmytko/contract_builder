@@ -3,8 +3,11 @@
 <h1>Admin Section</h1>
 <h3>Professional</h3>
 <ul>
-<li><%= link_to "Professional Designs", admin_professional_template_index_path(:page_type => 'design') %></li>
-<li><%= link_to "Professional Front End Coding", admin_professional_template_index_path(:page_type => 'front_end') %></li>
+<li><%= link_to "Designs", admin_professional_templates_path(:page_type => 'design') %></li>
+<li><%= link_to "Front End Coding", admin_professional_templates_path(:page_type => 'front_end') %></li>
+<li><%= link_to "Web Modulite Pages", admin_professional_pages_path(:cms_type => 'webmodulite') %></li>
+<li><%= link_to "Magento Pages", admin_professional_pages_path(:cms_type => 'magento') %></li>	
+<li><%= link_to "Wordpress Pages", admin_professional_pages_path(:cms_type => 'wordpress') %></li>		
 </ul>
 <h3>Web Ready</h3>
 </div> 

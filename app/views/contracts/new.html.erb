@@ -1,8 +1,9 @@
 <div id="new_contract_box" class="edit_client">
 <h1>Create Contract</h1>
+
 <%= form_for @contract do |p| %>
 
-    <%= p.hidden_field(:contract_type, :value => params[:action]) %>
+    <%= p.hidden_field(:contract_type, :value => @type.to_s) %>
 
     <%= p.label(:company,"Company Name:") %>
     <%= p.text_field :company %>

@@ -14,10 +14,33 @@
 //= require jquery_ujs
 //= require_tree .
 
+function ucfirst(str) {
+	var firstLetter = str.slice(0,1);
+	return firstLetter.toUpperCase() + str.substring(1);
+}
+
 $(document).ready(function(){
 
 $('a.add_desc').live('click',function(){
-	$(this).parent().find('textarea#professional_template_description').toggle();
+	$(this).parent().find('textarea').toggle();
 });
+
+$('a.cms_button').click(function(){
+	var type = $(this).attr('id').split('_');
+	type = type[1];
+	title = ucfirst(type);
+	$('h1#cms_selection_title').html(title);
+	$('div#ecomm_buttons').hide();
+	$('div#' + type).fadeIn();
+	return false;
+});
+
+$('a#ecomm_change_link').click(function(){
+	$('div#ecomm_buttons').show();
+	$('div.cms_selection').fadeOut();
+	$(this).parent().hide();
+	return false;
+});
+
 
 });

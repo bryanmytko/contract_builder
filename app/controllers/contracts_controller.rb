@@ -1,13 +1,8 @@
 class ContractsController < ApplicationController
 
-    def professional
-       @contract = Contract.new
-       @type = request.path
-    end
-    
-    def webready
+    def new
         @contract = Contract.new
-        @type = request.path
+        @type = params[:type]
     end
 
     def create
@@ -27,7 +22,7 @@ class ContractsController < ApplicationController
     	@contract = Contract.find(params[:id])
     	@contract.update_attributes(params[:contract])
     	if @contract.save
-    		redirect_to '/dashboard'
+    		redirect_to root_url
     	end
     end
     

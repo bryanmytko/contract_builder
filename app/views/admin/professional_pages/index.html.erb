@@ -1,0 +1,20 @@
+<div id="admin_pages" class="page_pages">
+	<h1><%= @cms_type.capitalize %></h1>
+
+	<div class="clear"></div>
+	
+	<% @features.each do |f| %>
+	<h3><%= f %></h3>
+	
+	<div class="default_show default_pages_form"></div>
+	
+	<% @pages.each do |t| %>
+	<% if t.feature_type == f %>
+	<%= render :partial => 'pages', :locals => { :t => t } %>
+	<% end %>
+	<% end %>
+	
+	<%= render :partial => 'new_page', :locals => { :f => f } %>
+	<% end %>
+
+</div>
