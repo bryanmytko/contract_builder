@@ -1,11 +1,18 @@
 Using Build id #<%= @build.id %>
+Build saved_state: <%= @build.saved_state.class %>
+Example Record:
+<% @build.saved_state.each do |k,v| %>
+<% if k.include? 'design' %>
+<%= k + v %>
+<% end %>
+<% end %>
 <div id="build">
 	<div id="build_main">
 		<div id="pro_build_design">		
 		  <%= render 'build/professional/hourly' %>	  
 			<div class="clear"></div>
-			<%= form_for @build, :remote => true, :html => { :id => 'save_pro' } do |b| %>		    
-			<%= render 'build/professional/design' %>
+			<%= form_for @build, :html => { :id => 'save_pro' } do |b| %>		    
+			<%= render 'build/professional/design', :locals => { :saved_state => @build.saved_state } %>
 			<%= render 'build/professional/frontend' %>			
 			<%= render 'build/professional/cms_selection' %>
 			<%= render :partial => 'build/professional/cms_pages', :locals => { :cms => @cms } %>

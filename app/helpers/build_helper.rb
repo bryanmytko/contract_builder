@@ -27,4 +27,18 @@ module BuildHelper
 											 ]
 	end
 	
+	def get_value(name)
+		if (!@build.saved_state.nil?)
+			@build.saved_state.each do |k,v|
+				if k.include? 'design'
+					k = k.gsub('_',' ')
+					if k.include? name
+						return v
+					end
+				end
+			end
+		end
+		return 0
+	end
+	
 end

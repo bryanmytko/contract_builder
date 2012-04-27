@@ -4,7 +4,7 @@ class CreateBuilds < ActiveRecord::Migration
       t.integer :contract_id
       t.string :saved_state
       t.string :hourly_rate
-
+			t.string :saved_state
       t.timestamps
     end
   end

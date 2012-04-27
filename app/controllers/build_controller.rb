@@ -30,8 +30,13 @@ class BuildController < ApplicationController
 		render @contract.contract_type
 	end
 
-	
 	def update
+		@build = Build.find_by_id(params[:id])
+		@saved_state = params
+		@build.update_attribute(:saved_state, @saved_state)
+		if @build.save
+			redirect_to dashboards_path
+		end
 	end
 	
 end

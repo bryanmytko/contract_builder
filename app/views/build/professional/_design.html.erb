@@ -9,7 +9,7 @@
 
 	<tr>
 	<td><%= d.name %></td>
-	<td><input value="0" type="text" class="hours" name="design_<%= d.name.gsub!(' ','_') %>_hours" /></td>
+	<td><input value="<%= get_value(d.name) %>" type="text" class="hours" name="design_<%= d.name.gsub!(' ','_') %>_hours" /></td>
 	<td><span class="hours_text"><%= d.hours %></span></td>
 	<td><span class="price_text">$0.00<span></td>
 	</tr>
