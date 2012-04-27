@@ -4,7 +4,7 @@ Using Build id #<%= @build.id %>
 		<div id="pro_build_design">		
 		  <%= render 'build/professional/hourly' %>	  
 			<div class="clear"></div>
-			<%= form_for @build, :html => { :id => 'save_pro' } do |b| %>		    
+			<%= form_for @build, :remote => true, :html => { :id => 'save_pro' } do |b| %>		    
 			<%= render 'build/professional/design' %>
 			<%= render 'build/professional/frontend' %>			
 			<%= render 'build/professional/cms_selection' %>

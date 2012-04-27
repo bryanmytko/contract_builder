@@ -1,6 +1,6 @@
 <div id="hourly_box">
   <h1 class="hourly_h1">Hourly Rate: $</h1>
-	<%= form_for @build, :url => build_path,
+	<%= form_for @build, :url => hourly_path,
 										 :remote => true, 
 										 :method => :put,
 										 :html => { :id => 'hourly_rate_form' } do |h| %>

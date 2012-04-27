@@ -29,16 +29,9 @@ class BuildController < ApplicationController
 		@cms = { 'webmodulite' => @webmodulite, 'magento' => @magento, 'wordpress' => @wordpress }
 		render @contract.contract_type
 	end
+
 	
-	#updates hourly rate
 	def update
-		@contract = Contract.find(params[:id])
-		@build = Build.find_by_contract_id(@contract.id)
-		if @build.update_attributes(params[:build])
-			respond_to do |format|    
-				format.js
-			end
-		end
 	end
 	
 end
