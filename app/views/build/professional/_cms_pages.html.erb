@@ -1,7 +1,7 @@
+<%= render 'build/professional/cms_revert' %>	 
 <% @cms.each do |k,v| %>
-<div id="<%= k %>" class="cms_selection">
-	<div id="pro_build_ecomm">                  
-		  <%= render 'build/professional/cms_revert' %>	  
+<div id="<%= k %>" class="cms_selection<%= is_cms_selected(k) %>">
+	<div id="pro_build_ecomm">                   
 		  <div id="ecomm_magento_records" class="ecomm_container" style="display: block; ">
 		  <% featuresArray.each do |f| %>
 				<h3><%= f %></h3>
@@ -14,7 +14,7 @@
 								<% if f == m.feature_type %>
 								<tr>
 									<td><%= m.name %></td>
-									<td><input type="checkbox" name="f_cms_<%= m.name %>"></td>
+									<td><input type="checkbox" name="f_cms_<%= m.name %>" <%= is_checked(m.name) %>></td>
 									<td><span class="hours_text"><%= m.hours %></span></td>
 									<td><span class="price_ecomm_text"><%= m.cost %><span></span></td>
 								</tr>

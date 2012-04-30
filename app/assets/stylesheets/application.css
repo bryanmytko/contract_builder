@@ -306,5 +306,5 @@ div#admin_pages h3 { color: #ff6600; }
 div#admin_pages ul { margin: 8px 8px 20px 20px; color: #0072bc; }
 div#admin_pages ul li { margin: 8px 0; }
 
-div.cms_selection { display: none; }
+div.cms_selection_hidden { display: none; }
 

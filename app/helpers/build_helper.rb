@@ -27,10 +27,10 @@ module BuildHelper
 											 ]
 	end
 	
-	def get_value(name)
+	def get_value(name,type)
 		if (!@build.saved_state.nil?)
 			@build.saved_state.each do |k,v|
-				if k.include? 'design'
+				if k.include? type
 					k = k.gsub('_',' ')
 					if k.include? name
 						return v
@@ -39,6 +39,25 @@ module BuildHelper
 			end
 		end
 		return 0
+	end
+	
+	def is_checked(name)
+	  if (!@build.saved_state.nil?)
+	    @build.saved_state.each do |k,v|
+	      if k.include? name
+	        return 'checked=true'
+	      end
+	    end
+	  return 0
+	  end
+	end
+	
+	def is_cms_selected(cms_type)
+	  if (cms_type == @build.cms_type)
+	    return ''
+	  else
+	    return ' cms_selection_hidden'
+	  end
 	end
 	
 end

@@ -1,7 +1,17 @@
-<h1 id="cms_selection_title">Select your CMS: </h1>
-<div id="ecomm_buttons">
-  <%= link_to '', '#', :id => 'ecomm_webmodulite', :class => 'cms_button' %>
-  <%= link_to '', '#', :id => 'ecomm_magento', :class => 'cms_button' %>
-  <%= link_to '', '#', :id => 'ecomm_wordpress', :class => 'cms_button' %>
+<% if(@build.cms_type == nil) %>
+<h1 id="cms_selection_title">Select your CMS:</h1>
+<% else %>
+<h1 id="cms_selection_title"><%= @build.cms_type.capitalize %><h1>
+<% end %>
+
+<div id="ecomm_buttons"
+<% if(@build.cms_type != nil) %> 
+style="display:none;"
+<% end %>
+>
+
+  <%= link_to '', cms_selection_path(@build.id, :cms_type => 'webmodulite'), :remote => true, :method => :put, :id => 'ecomm_webmodulite', :class => 'cms_button' %>
+  <%= link_to '', cms_selection_path(@build.id, :cms_type => 'magento'), :remote => true, :method => :put, :id => 'ecomm_magento', :class => 'cms_button' %>
+  <%= link_to '', cms_selection_path(@build.id, :cms_type => 'wordpress'), :remote => true, :method => :put, :id => 'ecomm_wordpress', :class => 'cms_button' %>
   <div class="clear"></div>
 </div>

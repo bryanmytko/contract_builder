@@ -31,14 +31,16 @@ $('a.cms_button').click(function(){
 	title = ucfirst(type);
 	$('h1#cms_selection_title').html(title);
 	$('div#ecomm_buttons').hide();
+	$('div#ecomm_change').show();
 	$('div#' + type).fadeIn();
-	return false;
 });
 
 $('a#ecomm_change_link').click(function(){
 	$('div#ecomm_buttons').show();
-	$('div.cms_selection').fadeOut();
-	$(this).parent().hide();
+	$('div.cms_selection').hide();
+	$('div#ecomm_change').hide();
+	$('h1#cms_selection_title').html('Select your CMS:');
+	$('input[type="checkbox"]').attr('checked', false)
 	return false;
 });
 
