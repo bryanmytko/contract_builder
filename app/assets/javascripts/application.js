@@ -44,5 +44,17 @@ $('a#ecomm_change_link').click(function(){
 	return false;
 });
 
+$('p.f_error').each(function(){
+	
+	$(this).prev().children('input').css({ 'border' : '1px solid #f00'})	
+});
+
+$('input').focus(function(){
+	
+	$(this).css({"border" : "none"});
+	$(this).parent().next('p.f_error').fadeOut();
+});
+
+
 
 });

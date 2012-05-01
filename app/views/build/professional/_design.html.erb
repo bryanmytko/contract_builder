@@ -1,20 +1,25 @@
+<%= render 'build/professional/mod_design_form' %>
 <div id="pro_build_design">
 <h1>Design</h1>
 <table cellpadding="0" cellspacing="0">
   <tr>
-      <th class="title"></th><th>Quantity</th><th>Design Hours</th><th>Total Cost</th>
+      <th class="title"></th><th>Quantity</th><th>Design Hours</th><th>Total Cost</th><th>Modifications</th>
   </tr>
 
   <% @designs.each do |d| %>
 
 	<tr>
 	<td><%= d.name %></td>
-	<td><input value="<%= get_value(d.name,'design') %>" type="text" class="hours" name="design_<%= d.name.gsub!(' ','_') %>_hours" /></td>
+	<td><input value="<%= get_value(d.name,'design') %>" type="text" class="hours" name="design_<%= d.name.gsub!(' ','_') %>_hours" /><input value="<%= d.description %>" type="hidden" class="description" /></td>
 	<td><span class="hours_text"><%= d.hours %></span></td>
-	<td><span class="price_text">$0.00<span></td>
+	<td><span class="price_text">$0.00</span></td>
+	<td><%= link_to '','', :class => 'modification_button basic', :id => 'modify_' + d.id.to_s %></td>
 	</tr>
 	
   <% end %>
     
 </table>
+
+
+
 </div>

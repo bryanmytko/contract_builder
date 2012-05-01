@@ -2,7 +2,7 @@ Auth::Application.routes.draw do
 
   root :to => "sessions#new"
 
-	resources :users, :sessions, :contracts, :build, :hourly, :saved_states, :cms_selections
+	resources :users, :sessions, :contracts, :build, :hourly, :saved_states, :cms_selections, :modifications
 	resources :dashboards, :path => '/dashboard'
 
   get "log_out" => "sessions#destroy", :as =>"log_out"

@@ -269,7 +269,7 @@ p.reset_password { margin: 0 0 20px 0; font-size: 13px; color: #666; }
 p#next_step_text a { color: #0072bc; text-decoration: none; margin: 12px 0; font-size: 13px; display: block; }
 
 p.error { color: red; padding: 4px 0;}
-p.f_error  { color: red; padding: 4px 30px 4px 0; font-size: 13px; text-align: right; }
+p.f_error  { color: red; padding: 4px 30px 4px 0; font-size: 13px; text-align: right;  }
 
 /* Professional Build */
 div#pro_build_design h2, div#pro_build_fe h2, div#pro_build_sections h2 { border-bottom: 5px solid #bfbfbf; font-size: 24px; color: #bfbfbf; padding: 10px 0; margin: 0 0 20px 0; }
@@ -307,4 +307,58 @@ div#admin_pages ul { margin: 8px 8px 20px 20px; color: #0072bc; }
 div#admin_pages ul li { margin: 8px 0; }
 
 div.cms_selection_hidden { display: none; }
+
+span.error { color: #f00; font-size: 13px; }
+a.modification_button { display: block; margin: 0 0 0 32px; background: url(../img/dashboard_buttons.png) -460px 0 no-repeat; width: 25px; height: 23px; }
+
+#modification { display: none; }
+#basic-modal-content { display: none; }
+#simplemodal-overlay {background-color:#000;}
+#simplemodal-container {background-color:#fff; border:8px solid #0072bc; padding:20px; -webkit-border-radius: 10px; }
+
+#simplemodal-container form { width: 500px; }
+#simplemodal-container input { width: 282px; }
+
+
+#contact-container  input { width: 282px; height: 36px; background: url(../img/login_input.png) 0 0 no-repeat; 
+								border: 0; padding: 3px 10px; font-size: 16px; margin-top: 20px; display: block; float:left; }
+#contact-container  label { width: 150px; height: 36px; padding: 12px 20px 0 0; text-align: right; 
+								 color: #7f7f7f; font-weight: normal; margin-top: 20px; display: block; float: left; }
+
+
+/* Container */
+#contact-container { text-align:left; width:450px;}
+#contact-container .contact-content {background-color:#333; color:#ddd; height:40px;}
+#contact-container h1 {color:#0072bc; font-size:24px; line-height:20px; margin:0; padding:12px 0 6px 12px; text-align:left;}
+#contact-container .contact-loading {background:url(../img/contact/loading.gif) no-repeat; height:55px; margin:-14px 0 0 190px; padding:0; position:absolute; width:54px; z-index:8000;}
+#contact-container .contact-message {text-align:center;}
+#contact-container .contact-error {background:#000; border:2px solid #ccc; font-size:14px; font-weight:bold; line-height:18px; margin:0 auto; padding:2px; width:92%;}
+#contact-container br {clear:both;}
+#contact-container form {margin:0; padding:0; }
+#contact-container label {clear:left; display:block; float:left;  padding-right:14px; text-align:right; width:100px;}
+#contact-container .contact-input {background:#eee; border:1px solid #fff; font-family:'Trebuchet MS', Verdana, Arial; float:left; padding:2px; margin:2px; width:300px;}
+#contact-container textarea { float: left; border: 1px solid #bfbfbf; margin: 20px 0 0px 0; height: 60px; width: 292px; padding: 3px; }
+
+#contact-container .contact-cc {cursor:default; font-size:14px; vertical-align:top;}
+#contact-container .contact-top {background-color:#333; height:13px; margin:0; padding:0; -webkit-border-top-left-radius:8px; -webkit-border-top-right-radius:8px; -moz-border-radius-topleft:8px; -moz-border-radius-topright:8px; border-radius:8px 8px 0 0;}
+#contact-container .contact-bottom {background-color:#333; font-size:12px; height:13px; line-height:12px; text-align:center; -webkit-border-bottom-right-radius:8px; -webkit-border-bottom-left-radius:8px; -moz-border-radius-bottomright:8px; -moz-border-radius-bottomleft:8px; border-radius:0 0 8px 8px;}
+#contact-container .contact-bottom a,
+#contact-container .contact-bottom a:link,
+#contact-container .contact-bottom a:active,
+#contact-container .contact-bottom a:visited {color:#666; position:relative; top:-4px; text-decoration:none;}
+#contact-container .contact-bottom a:hover {color:#888;}
+#contact-container .contact-button {background:#d76300; border:0; color:#fff; cursor:pointer; font-size:16px; font-weight:bold; height:26px; margin:4px 0 0 4px; text-align:center; vertical-align:middle; -webkit-border-radius:8px; -moz-border-radius:8px; border-radius:8px;}
+#contact-container .contact-button:hover {background:#f49000;}
+#contact-container a.modal-close,
+#contact-container a.modal-close:link,
+#contact-container a.modal-close:active,
+#contact-container a.modal-close:visited {color:#999; font-size:18px; font-weight:bold; position:absolute; text-decoration:none; right:8px; top:0px;}
+#contact-container a.modal-close:hover {color:#ccc;}
+#contact-container input.save_button { cursor: pointer; background: url(../img/build_buttons.png) -166px 0 no-repeat; height: 41px; width: 94px; border: 0; float: left; }
+#contact-container input.save_button:hover { background-position: -166px bottom; }
+
+								
+								
+								
+
 

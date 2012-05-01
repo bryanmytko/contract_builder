@@ -1,0 +1,25 @@
+<div id="basic-modal-content">
+<div id="contact-container">
+<h1>Modification for: </h1>
+<%= form_for modification_path, :remote => true, :method => :post do |m| %>
+
+<%= m.hidden_field(:id, :class => 'mod_build_id') %>
+
+<%= m.label(:name, 'Name: ') %>
+<%= m.text_field(:name, :class => 'mod_name') %>
+
+<%= m.label(:hours, 'Hours: ') %>
+<%= m.text_field(:hours, :class => 'mod_hours') %>
+
+<%= m.label(:cost, 'Cost: ') %>
+<%= m.text_field(:cost, :class => 'mod_cost') %>
+
+<%= m.label(:description, 'Description: ') %>
+<%= m.text_area(:description, :class => 'mod_description') %>
+
+<%= m.label(:save, '') %><input type="submit" class="save_button" value="" />
+
+<% end %>
+</div>
+<br />
+</div>

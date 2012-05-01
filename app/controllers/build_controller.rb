@@ -20,7 +20,6 @@ class BuildController < ApplicationController
 		else
 			@build = Build.find_by_contract_id(params[:id])
 		end
-		#make helpers for this stuff
 		@designs = ProfessionalTemplate.find_all_by_page_type(:design)
 		@front_end = ProfessionalTemplate.find_all_by_page_type(:front_end)
 		@webmodulite = ProfessionalPage.find_all_by_cms_type(:webmodulite)

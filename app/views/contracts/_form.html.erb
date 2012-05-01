@@ -1,31 +1,58 @@
-<div id="new_contract_box" class="edit_client">
-<h1>Create Contract</h1>
 <%= form_for @contract do |p| %>
 
-    <%= p.hidden_field(:contract_type, :value => @contract.contract_type) %>
+ 		<%= p.hidden_field(:contract_type, :value => @contract.contract_type) %>
 
     <%= p.label(:company,"Company Name:") %>
     <%= p.text_field :company %>
-        
-    <div class="clear"></div>
-    
+ 	
+		<% if @contract.errors[:company].any? %>
+		<p class="f_error clear">This field cannot be empty!</p>
+		<% end %>
+		
+		<div class="clear"></div>
+
     <%= p.label(:address,"Company Address:") %>
     <%= p.text_field :address %>
+
+		<% if @contract.errors[:company].any? %>
+		<p class="f_error clear">This field cannot be empty!</p>
+		<% end %>
     
     <div class="clear"></div>
     
     <%= p.label(:name,"Contact Name:") %>
     <%= p.text_field :name %>
+
+		<% if @contract.errors[:name].any? %>
+		<p class="f_error clear">This field cannot be empty!</p>
+		<% end %>
     
     <div class="clear"></div>
     
     <%= p.label(:email,"Email:") %>
     <%= p.text_field :email %>
+
+		<% if @contract.errors[:email].any? %>
+		<p class="f_error clear">This field cannot be empty!</p>
+		<% end %>
     
     <div class="clear"></div>
     
     <%= p.label(:phone,"Phone:") %>
     <%= p.text_field :phone %>
+
+		<% if @contract.errors[:phone].any? %>
+		<p class="f_error clear">This field cannot be empty!</p>
+		<% end %>
+
+    <div class="clear"></div>
+    
+    <%= p.label(:url,"Website Url:") %>
+    <%= p.text_field :url %>
+
+		<% if @contract.errors[:url].any? %>
+		<p class="f_error clear">This field cannot be empty!</p>
+		<% end %>
     
     <div class="clear"></div>
     
@@ -35,5 +62,3 @@
     <div class="clear"></div>
     
 <% end %>
-</div>
-<div class="clear"></div>

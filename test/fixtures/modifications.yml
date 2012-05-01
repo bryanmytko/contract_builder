@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  build_id: 1
+  page_type: MyString
+  name: MyString
+  hours: MyString
+  cost: MyString
+  description: MyString
+
+two:
+  build_id: 1
+  page_type: MyString
+  name: MyString
+  hours: MyString
+  cost: MyString
+  description: MyString
