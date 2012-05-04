@@ -1,25 +1,26 @@
-<div id="basic-modal-content">
+<div class="clear"></div>
+<div id="basic-modal-content"><div class="clear"></div>
+
+	<div class="clear"></div>
 <div id="contact-container">
 <h1>Modification for: </h1>
-<%= form_for modification_path, :remote => true, :method => :post do |m| %>
+<%= form_tag(modification_path, :remote => true, :method => :put)%>
 
-<%= m.hidden_field(:id, :class => 'mod_build_id') %>
+<%= hidden_field(:mod_id, '', :class => 'mod_id') %>
 
-<%= m.label(:name, 'Name: ') %>
-<%= m.text_field(:name, :class => 'mod_name') %>
+<%= label(:name, 'Name: ') %>
+<%= text_field_tag('name', '',:class => 'mod_name') %>
 
-<%= m.label(:hours, 'Hours: ') %>
-<%= m.text_field(:hours, :class => 'mod_hours') %>
+<%= label(:hours, 'Hours: ') %>
+<%= text_field_tag('hours','', :class => 'mod_hours') %>
 
-<%= m.label(:cost, 'Cost: ') %>
-<%= m.text_field(:cost, :class => 'mod_cost') %>
+<%= label(:description, 'Description: ') %>
+<%= text_area_tag('description','', :class => 'mod_description') %>
 
-<%= m.label(:description, 'Description: ') %>
-<%= m.text_area(:description, :class => 'mod_description') %>
-
-<%= m.label(:save, '') %><input type="submit" class="save_button" value="" />
-
-<% end %>
+<%= label(:save, '') %>
+<%= submit_tag('',:id=>'save', :class => 'save_button') %>
+<div class="clear"></div>
+</form>
 </div>
 <br />
 </div>

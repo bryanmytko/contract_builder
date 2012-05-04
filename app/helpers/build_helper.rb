@@ -60,4 +60,16 @@ module BuildHelper
 	  end
 	end
 	
+	def get_modification(design_id,build_id)
+	  @modification = Modification.find_all_by_build_id(build_id)
+	  @modification.each do |d|
+	    if(d.design_id == design_id)
+	      return d.id
+	    else
+	      return 0
+	    end
+    end
+    return 0
+	end
+	
 end

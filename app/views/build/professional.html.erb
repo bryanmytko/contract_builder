@@ -1,8 +1,10 @@
 <div id="build">
 	<div id="build_main">
 		<div id="pro_build_design">		
-		  <%= render 'build/professional/hourly' %>	  
+		  <%= render 'build/professional/hourly' %>
+			
 			<div class="clear"></div>
+			<%= render 'build/professional/mod_design_form' %>  
 			<%= form_for @build, :html => { :id => 'save_pro' } do |b| %>		    
 			<%= render 'build/professional/design' %>
 			<%= render 'build/professional/frontend' %>			

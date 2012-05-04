@@ -5,7 +5,7 @@ one:
   page_type: MyString
   name: MyString
   hours: MyString
-  cost: MyString
+  design_id: 1
   description: MyString
 
 two:
@@ -13,5 +13,5 @@ two:
   page_type: MyString
   name: MyString
   hours: MyString
-  cost: MyString
+  design_id: 1
   description: MyString
