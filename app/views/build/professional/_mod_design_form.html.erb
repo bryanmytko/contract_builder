@@ -6,16 +6,19 @@
 <h1>Modification for: </h1>
 <%= form_tag(modification_path, :remote => true, :method => :put)%>
 
-<%= hidden_field(:mod_id, '', :class => 'mod_id') %>
+<%= hidden_field(:modification, :design_id, :class => 'design_id') %>
+<%= hidden_field(:modification, :design_template_id, :class => 'design_template_id')%>
+<%= hidden_field(:modification, :build_id, :value => @build.id, :class => 'build_id')%>
+<%= hidden_field(:modification, :page_type, :value => 'design')%>
 
 <%= label(:name, 'Name: ') %>
-<%= text_field_tag('name', '',:class => 'mod_name') %>
+<%= text_field(:modification, :name, :class => 'mod_name') %>
 
 <%= label(:hours, 'Hours: ') %>
-<%= text_field_tag('hours','', :class => 'mod_hours') %>
+<%= text_field(:modification, :hours, :class => 'mod_hours') %>
 
 <%= label(:description, 'Description: ') %>
-<%= text_area_tag('description','', :class => 'mod_description') %>
+<%= text_area(:modification, :description, :class => 'mod_description') %>
 
 <%= label(:save, '') %>
 <%= submit_tag('',:id=>'save', :class => 'save_button') %>

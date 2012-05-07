@@ -14,6 +14,9 @@ class BuildController < ApplicationController
 		@magento = ProfessionalPage.find_all_by_cms_type(:magento)
 		@wordpress = ProfessionalPage.find_all_by_cms_type(:wordpress)
 		
+		#Get modifications, if any
+		@modifications = Modifications.find_all_by_build_id(@build.id)
+		
 		@cms = { 'webmodulite' => @webmodulite, 'magento' => @magento, 'wordpress' => @wordpress }
 		render @contract.contract_type
 	end

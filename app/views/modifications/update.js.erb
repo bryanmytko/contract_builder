@@ -1,8 +1,9 @@
 $(document).ready(function(){
 	
-	var mod_id = '<%= @mod_id %>'
+	var mod_id = '<%= @params[:design_id] %>'
 	
-	alert(mod_id + ' heh.');
+	alert('Updated modification: ' + mod_id);
+	$.modal.close();
 	
 	
 });
