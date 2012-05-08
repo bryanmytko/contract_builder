@@ -8,7 +8,7 @@
 				<table cellpadding="0" cellspacing="0">
 						<tbody>
 							<tr>
-							    <th class="title">Feature</th><th>Select</th><th>Hours</th><th>Cost</th>
+							    <th class="title">Feature</th><th>Select</th><th>Hours</th><th>Cost</th><th>Modify</th>
 							</tr>
 							<% v.each do |m| %>
 								<% if f == m.feature_type %>
@@ -17,6 +17,7 @@
 									<td><input type="checkbox" name="f_cms_<%= m.name %>" <%= is_checked(m.name) %>></td>
 									<td><span class="hours_text"><%= m.hours %></span></td>
 									<td><span class="price_ecomm_text"><%= m.cost %><span></span></td>
+									<td><%= link_to '','', :class => 'modification_button basic_cms', :id => 'modify_' + m.id.to_s %></td>
 								</tr>
 								<% end %>
 							<% end %>

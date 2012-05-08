@@ -312,7 +312,7 @@ span.error { color: #f00; font-size: 13px; }
 a.modification_button { display: block; margin: 0 0 0 32px; background: url(../img/dashboard_buttons.png) -460px 0 no-repeat; width: 25px; height: 23px; }
 
 #modification { display: none; }
-#basic-modal-content { display: none; }
+#basic-modal-content, #basic-modal-content-pages { display: none; }
 #simplemodal-overlay {background-color:#000;}
 #simplemodal-container {background-color:#fff; border:8px solid #0072bc; padding:20px; -webkit-border-radius: 10px; }
 

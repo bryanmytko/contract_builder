@@ -60,11 +60,11 @@ module BuildHelper
 	  end
 	end
 	
-	def get_modification(design_id,build_id)
+	def get_modification(template_id,build_id)
 	  @modification = Modification.find_all_by_build_id(build_id)
-	  @modification.each do |d|
-	    if(d.design_id == design_id)
-	      return d.id
+	  @modification.each do |m|
+	    if(m.template_id == template_id)
+	      return m.id
 	    else
 	      return 0
 	    end
@@ -74,7 +74,7 @@ module BuildHelper
 	
 	def apply_mods(input_field, current_value, id)
 	  @modifications.each do |m|
-	    if(id == m.design_id.to_s)
+	    if(id == m.template_id.to_s)
 	      return m.send(input_field.to_sym)
 	    end
 	  end

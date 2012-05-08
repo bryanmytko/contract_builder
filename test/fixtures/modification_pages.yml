@@ -1,17 +1,21 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
 one:
-  build_id: 1
-  page_type: MyString
   name: MyString
   hours: MyString
-  template_id: 1
+  cost: MyString
   description: MyString
+  cms_type: MyString
+  feature_type: MyString
+  build_id: 1
+  template_id: 1
 
 two:
-  build_id: 1
-  page_type: MyString
   name: MyString
   hours: MyString
-  template_id: 1
+  cost: MyString
   description: MyString
+  cms_type: MyString
+  feature_type: MyString
+  build_id: 1
+  template_id: 1
