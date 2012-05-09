@@ -7,14 +7,14 @@
 
   <% @designs.each do |d| %>
 	<tr>
-	<td><p class="name_text"><%= apply_mods('name', d.name, d.id.to_s) %></p></td>
+	<td><p class="name_text"><%= apply_mods('design','name', d.name, d.id.to_s) %></p></td>
 	<td>
 		<input value="<%= d.id.to_s %>" type="hidden" class="template_id">
 		<input value="<%= get_modification(d.id,@build.id) %>" type="hidden" class="get_modification_id" />
 		<input value="<%= get_value(d.name,'design') %>" type="text" class="quantity hours" name="design_<%= d.name.gsub!(' ','_') %>_hours" />
-		<input value="<%= apply_mods('description', d.description, d.id.to_s) %>" type="hidden" class="description" />
+		<input value="<%= apply_mods('design','description', d.description, d.id.to_s) %>" type="hidden" class="description" />
 	</td>
-	<td><span class="hours_text"><%= apply_mods('hours', d.hours, d.id.to_s) %></span></td>
+	<td><span class="hours_text"><%= apply_mods('design','hours', d.hours, d.id.to_s) %></span></td>
 	<td><span class="price_text">$0.00</span></td>
 	<td><%= link_to '','', :class => 'modification_button basic', :id => 'modify_' + d.id.to_s %></td>
 	</tr>

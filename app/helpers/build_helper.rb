@@ -1,5 +1,6 @@
 module BuildHelper
 
+  #array of features
 	def featuresArray
 		features = [
 												 'Content Management',
@@ -27,6 +28,7 @@ module BuildHelper
 											 ]
 	end
 	
+	#restore saved states for text inputs
 	def get_value(name,type)
 		if (!@build.saved_state.nil?)
 			@build.saved_state.each do |k,v|
@@ -41,6 +43,7 @@ module BuildHelper
 		return 0
 	end
 	
+	#restore saved states for check marks
 	def is_checked(name)
 	  if (!@build.saved_state.nil?)
 	    @build.saved_state.each do |k,v|
@@ -52,6 +55,7 @@ module BuildHelper
 	  end
 	end
 	
+	#return class for when CMS is already selected
 	def is_cms_selected(cms_type)
 	  if (cms_type == @build.cms_type)
 	    return ''
@@ -60,6 +64,7 @@ module BuildHelper
 	  end
 	end
 	
+	#if there is a modification already for this record, find its id (Design, Frontend)
 	def get_modification(template_id,build_id)
 	  @modification = Modification.find_all_by_build_id(build_id)
 	  @modification.each do |m|
@@ -72,8 +77,27 @@ module BuildHelper
     return 0
 	end
 	
-	def apply_mods(input_field, current_value, id)
-	  @modifications.each do |m|
+	#if there is a modification already for this record, find its id (CMS pages)
+	def get_page_modification(template_id, build_id)
+	  @modification_page = ModificationPages.find_all_by_build_id(build_id)
+	  @modification_page.each do |m|
+	    if(m.template_id.to_s == template_id)
+	      return m.id
+	    else
+	      return 0
+	    end
+	  end
+	  return 0
+	end
+	
+	#check if modifications exist and apply them if so
+	def apply_mods(group_type, input_field, current_value, id)
+	  if(group_type == 'cms')
+	    mod = @modification_pages #set in controller
+    else
+	    mod = @modifications #set in controller
+	  end
+	  mod.each do |m|
 	    if(id == m.template_id.to_s)
 	      return m.send(input_field.to_sym)
 	    end

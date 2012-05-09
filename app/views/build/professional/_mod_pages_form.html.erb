@@ -4,13 +4,13 @@
 	<div class="clear"></div>
 <div id="contact-container">
 <h1>Modification: </h1>
-<%= form_tag(modification_pages_path, :remote => true, :method => :put)%>
+<%= form_tag(modification_path, :remote => true, :method => :put)%>
 
 <%= hidden_field(:modification, :mod_id, :class => 'mod_id') %>
 <%= hidden_field(:modification, :template_id, :class => 'template_id')%>
 <%= hidden_field(:modification, :build_id, :value => @build.id, :class => 'build_id')%>
-<%= hidden_field(:modification, :cms_type, :value => 'cms') %>
-<%= hidden_field(:modification, :feature_type, :value => 'feature_type') %>
+<%= hidden_field(:modification, :cms_type, :class => 'cms_type') %>
+<%= hidden_field(:modification, :feature_type, :class => 'feature_type') %>
 
 <%= label(:name, 'Name: ') %>
 <%= text_field(:modification, :name, :class => 'mod_name') %>

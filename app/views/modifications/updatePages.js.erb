@@ -1,0 +1,28 @@
+$(document).ready(function(){
+	
+	var mod_id = '<%= @modification.id %>';
+	var mod_name = '<%= @modification.name %>';
+	var mod_hours = '<%= @modification.hours %>';
+	var mod_cost = '<%= @modification.cost %>';
+	var mod_description = '<%= @modification.description %>';
+	var template_id = '<%= @modification.template_id %>';
+	
+	console.log(mod_id);
+	console.log(mod_name);
+	console.log(mod_hours);
+	console.log(mod_description);
+	console.log(mod_cost);
+				
+	var tbl = $('input.template_page_id[value="' + template_id + '"]').parents('tr');
+	
+	console.log(tbl)
+	
+	tbl.find('p.name_text').html(mod_name);
+	tbl.find('span.hours_text').html(mod_hours);
+	tbl.find('input.get_modification_id').val(mod_id);
+	tbl.find('input.description').val(mod_description);
+	tbl.find('span.price_ecomm_text').html(mod_cost);
+	
+	$.modal.close();
+		
+});
