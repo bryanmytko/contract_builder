@@ -21,8 +21,8 @@
 									<input value="<%= get_page_modification(m.id.to_s,@build.id) %>" type="hidden" class="get_modification_id" />
 									<td><p class="name_text"><%= apply_mods('cms','name', m.name, m.id.to_s) %></p></td>
 									<td><input type="checkbox" name="f_cms_<%= m.name %>" <%= is_checked(m.name) %>></td>
-									<td><span class="hours_text"><%= apply_mods('cms','hours', m.name, m.id.to_s) %></span></td>
-									<td><span class="price_ecomm_text"><%= apply_mods('cms','cost', m.name, m.id.to_s) %></span></td>
+									<td><span class="hours_text cms_hours_text"><%= apply_mods('cms','hours', m.hours, m.id.to_s) %></span></td>
+									<td><span class="cms_price_text"><%= apply_mods('cms','cost', m.cost, m.id.to_s) %></span></td>
 									<td><%= link_to '','', :class => 'modification_button basic_cms', :id => 'modify_' + m.id.to_s %></td>
 								</tr>
 								<% end %>
