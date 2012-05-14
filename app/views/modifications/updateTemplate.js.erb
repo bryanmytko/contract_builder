@@ -13,8 +13,6 @@ $(document).ready(function(){
 				
 	var tbl = $('input.template_id[value="' + template_id + '"]').parents('tr');
 	
-	console.log(tbl)
-	
 	tbl.find('p.name_text').html(mod_name);
 	tbl.find('span.hours_text').html(mod_hours);
 	tbl.find('input.get_modification_id').val(mod_id);
@@ -22,5 +20,6 @@ $(document).ready(function(){
 	
 	$.modal.close();
 	
-	
+	buildObj.init();
+		
 });

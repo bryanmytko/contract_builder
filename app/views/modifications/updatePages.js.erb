@@ -15,8 +15,6 @@ $(document).ready(function(){
 				
 	var tbl = $('input.template_page_id[value="' + template_id + '"]').parents('tr');
 	
-	console.log(tbl)
-	
 	tbl.find('p.name_text').html(mod_name);
 	tbl.find('span.hours_text').html(mod_hours);
 	tbl.find('input.get_modification_id').val(mod_id);
@@ -24,5 +22,7 @@ $(document).ready(function(){
 	tbl.find('span.price_ecomm_text').html(mod_cost);
 	
 	$.modal.close();
+
+	buildObj.init();
 		
 });

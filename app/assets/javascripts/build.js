@@ -1,4 +1,15 @@
+var buildObj = {a:true};
+
 $(document).ready(function(){
+	
+	var hourly_Rate = 0;
+
+	buildObj.init = function(){
+		hourly_rate = $('input#build_hourly_rate').val();
+		display_prices();
+		display_sums();
+		console.log(hourly_rate);
+	}
 	
 	$('.basic').click(function (e) {
 		
@@ -53,7 +64,6 @@ $(document).ready(function(){
 	});
 	
 	/** Calculations **/
-	var hourly_rate = $('input#build_hourly_rate').val();
 	
 	$('input.hours').keydown(function(event){
 		numOnly(event);
@@ -80,6 +90,11 @@ $(document).ready(function(){
 	var frontend_total_display_price = $('span.sidebar_coding_price_text');
 	var cms_total_display_hours = $('span.sidebar_features_hours_text');
 	var cms_total_display_price = $('span.sidebar_features_price_text');
+	
+	/* Coefficents */
+	var pm_coeff = 0.05;
+	var qa_coeff = 0.05;
+	var planning_coeff = 0.1;
 	
 	$('input').focus(function(){
 		if($(this).val() == '0') $(this).val('');
@@ -113,6 +128,8 @@ $(document).ready(function(){
 	});
 	
 	function display_sums(){
+		
+		console.log('displaying sums!');
 		
 		/* Design Totals */
 		design_ptotal = 0;
@@ -164,23 +181,39 @@ $(document).ready(function(){
 		frontend_total_display_price.html(frontend_ptotal);
 		frontend_total_display_hours.html(frontend_htotal);
 		cms_total_display_hours.html(cms_htotal);
-		cms_total_display_price.html(cms_ptotal);	
-	}
+		cms_total_display_price.html(cms_ptotal);
+		
+		var sub_total_hours = design_htotal + frontend_htotal + cms_htotal;
 
-	function calc_totals(){
-		calc_additional();
-		calc_grandtotal();		
+		var qa_total_hours = Math.ceil(sub_total_hours*qa_coeff);
+		var pm_total_hours = Math.ceil(sub_total_hours*pm_coeff);
+		var planning_total_hours = Math.ceil(sub_total_hours*planning_coeff);
+		
+		$('span.sidebar_planning_hours_text').html(planning_total_hours);
+		$('span.sidebar_pm_hours_text').html(pm_total_hours);
+		$('span.sidebar_qa_hours_text').html(qa_total_hours);
+		
+		$('span.sidebar_planning_price_text').html(planning_total_hours*hourly_rate);
+		$('span.sidebar_pm_price_text').html(pm_total_hours*hourly_rate);
+		$('span.sidebar_qa_price_text').html(qa_total_hours*hourly_rate);
+	
+		grand_total_hours = sub_total_hours + qa_total_hours + pm_total_hours + planning_total_hours;
+		grand_total_price = ((design_htotal + frontend_htotal + pm_total_hours + qa_total_hours + planning_total_hours) * hourly_rate) + cms_ptotal;
+
+		$('span.sidebar_grand_hours_text').html(grand_total_hours);
+		$('span.sidebar_grand_price_text').html(grand_total_price);
+		
 	}
 	
-	function calc_additional(){
-		sub_total = (design_total + frontend_total + cms_total);
-		qa_total = sub_total*qa_coeff;
-		pm_total = sub_total*pm_coeff;
-		planning_total = sub_total*pm_coeff;	
-	}
-	
-	function calc_grandtotal(){		
-		grand_total = sub_total + qa_total + pm_total + planning_total;		
+	function display_prices(){
+		
+		$('input.hours').each(function(){
+			var tbl = $(this).parents('tr');
+			if($(this).val() != 0){
+				var hours = tbl.find('span.hours_text').html();
+				tbl.find('span.price_text').html($(this).val() * hourly_rate * hours);
+			}
+		});
 	}
 
 	/************************ UTILITY FUNCTIONS ******************************************
@@ -231,7 +264,7 @@ $(document).ready(function(){
 	/**************************************************************************************
 	**************************************************************************************/
 
-/*	init();//Fire it up*/
+	buildObj.init();//Fire it up*/
 
 	
 });//end document.ready();
