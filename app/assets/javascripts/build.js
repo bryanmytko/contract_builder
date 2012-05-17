@@ -8,7 +8,7 @@ $(document).ready(function(){
 		hourly_rate = $('input#build_hourly_rate').val();
 		display_prices();
 		display_sums();
-		console.log(hourly_rate);
+		console.log('init...');
 	}
 	
 	$('.basic').click(function (e) {

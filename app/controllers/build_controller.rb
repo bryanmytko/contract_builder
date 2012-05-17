@@ -45,12 +45,16 @@ class BuildController < ApplicationController
 	end
 
 	def update
-		@build = Build.find_by_id(params[:id])
-		@saved_state = params
-		@build.update_attribute(:saved_state, @saved_state)
-		if @build.save
-			redirect_to dashboards_path
-		end
+	  if(params[:output])
+	    redirect_to output_path
+	  else
+	    @build = Build.find_by_id(params[:id])
+  	  @saved_state = params
+  	  @build.update_attribute(:saved_state, @saved_state)
+  	  if @build.save
+  	  	redirect_to dashboards_path
+  	  end
+  	end
 	end
 	
 end

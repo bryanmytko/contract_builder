@@ -1,0 +1,105 @@
+<head>
+	<%= stylesheet_link_tag('/css/output.css', :media => :screen) %>
+	<%= stylesheet_link_tag('/css/output.css', :media => :print) %>
+</head>
+
+Test string: <%= @test %>
+
+<%
+
+#Organize data for output
+
+design_hours = get_hours('design')
+design_cost = (design_hours.to_i * @build.hourly_rate.to_i)
+frontend_hours = get_hours('frontend')
+frontend_cost = (frontend_hours.to_i * @build.hourly_rate.to_i)
+cms_hours = get_cms_hours()
+cms_cost = get_cms_cost()
+
+%>
+
+<hr />
+<div id="mainContainer">
+<%#= render 'output/coverpage' %>
+
+<!--
+<h1>Front End Pages</h1>
+<ul>
+	<%# @front_end.each do |d| %>
+	<%# if(is_selected(d.name)) %>
+	<li>
+		<h3><%#= is_selected(d.name) %></h3>
+		<p><%#= d.description %></p>
+	</li>
+	<%# end %>
+<%# end %>
+</ul>
+
+<h1><%#= @build.cms_type.capitalize %> CMS Pages</h1>
+<ul>
+<%# @cms[@build.cms_type].each do |d| %>
+	<li><%#= d.name %></li>
+<%# end %>
+</ul>-->
+
+<%#= render 'output/client_information' %>
+<%#= render 'output/main_block' %>
+
+
+<h2>PROJECT TIME &amp; COST</h2>
+<table cellpadding="0" cellspacing="0" id="saved_table">
+<tr>
+	<th class="header">Component</th><th class="header">Hours</th><th class="header">Price</th>
+</tr>
+<tr>
+	<td>Design</td><td><%= design_hours %></td><td>$<%= design_cost %></td>
+</tr>
+<tr>
+	<td>Front End Coding</td><td><%= frontend_hours %></td><td>$<%= frontend_cost %></td>
+</tr>
+<tr>
+	<td>CMS Features</td><td><%= cms_hours %></td><td>$<%= cms_cost %></td>
+</tr>
+</table>
+
+<!-- @TODO -->
+
+<!--
+<tr><th><span class="error">Additional</span><th></th><th></th></tr>
+<tr><td>QA</td><td><span class="qa_hours"><span></td><td>$<span class="qa_cost"></span></td></tr>
+<tr><td>Planning / Discovery</td><td><span class="qa_hours"><span></td><td>$<span class="qa_cost"></span></td></tr>
+<tr><td>Project Management</td><td><span class="pm_hours"><span></td><td>$<span class="pm_cost"></span></td></tr>
+-->
+</table>
+<h2>WEBSITE PAYMENT TERMS</h2>
+<h3>AMOUNT DUE</h3>
+<p><strong>Payment 1:</strong> 50% Due to being work and upon endorsement of this agreement
+$<span class="total_50"></span></p>
+<p><strong>Payment 2:</strong> 25% Due upon completion of mockups or 2 months after kick-off date; whichever is first
+$<span class="total_25"></span></p>
+<p><strong>Payment 3:</strong> 25% Due upon completion of quality assurance testing and prior to launch **
+$<span class="total_25"></span></p>
+<p><strong>TOTAL:</strong> $<span class="total_100"></span></p>
+<p>**Content transfer and product migration being completed by Client may not delay final payment</p>
+
+<p>Initials ______________</p><p>	Date ____________</p>
+
+<h2>APPENDIX A: Feature Descriptions</h2>
+
+<h3>Content Management Development (CMS)</h3>
+
+<p>BFM's development team will configure and develop a user-friendly Back-end Content Management System (CMS), customized to service your website with the below features. The CMS will be flexible for future development and can be easily updated or expanded by a qualified web developer in the future. </p>
+
+<h3>Website Features and Capabilities</h3>
+
+<?php echo $this->get_dsc('design'); ?>
+<?php echo $this->get_dsc('coding'); ?>
+<?php echo $this->get_dsc('f_cms'); ?>
+<?php 
+
+$cms = lcfirst($this->get_cms());
+echo $this->get_dsc('ecomm-' . $cms); 
+?>
+
+<%#= render 'output/toe' %>
+</div>
