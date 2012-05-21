@@ -1,6 +1,11 @@
 class OutputController < ApplicationController
   
   def show
+    
+    @pmcoeff = 0.05
+    @qacoeff = 0.05
+    @planningcoeff = 0.1
+    
     @build = Build.find(params[:id])
     @contract = Contract.find(@build.contract_id)
     @test = @build.inspect
@@ -19,6 +24,7 @@ class OutputController < ApplicationController
 		@modification_pages = ModificationPages.find_all_by_build_id(@build.id)
 		
 		@cms = { 'webmodulite' => @webmodulite, 'magento' => @magento, 'wordpress' => @wordpress }
+		@types = { 'design' => @designs, 'frontend' => @front_end, 'cms' => @cms }
 		
 		@t = Time.new
 

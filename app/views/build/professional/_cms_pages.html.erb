@@ -1,6 +1,6 @@
 <%= render 'build/professional/cms_revert' %>	 
 <% @cms.each do |k,v| %>
-<div id="<%= k %>" class="cms_selection<%= is_cms_selected(k) %>">
+<div id="<%= k %>" class="cms_selection<%= cms_class(k) %>">
 	<div id="pro_build_ecomm">                   
 		  <div id="ecomm_magento_records" class="ecomm_container" style="display: block; ">
 		  <% featuresArray.each do |f| %>

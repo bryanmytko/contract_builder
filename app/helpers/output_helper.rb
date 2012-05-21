@@ -30,8 +30,7 @@ module OutputHelper
   
   def get_hours(type)
     i = 0
-    types = { 'design' => @designs, 'frontend' => @front_end }
-    types[type].each do |d|
+    @types[type].each do |d|
       if(is_selected(d.name))
     	  d = check_mod(d)
     	  name = type + '_' + d.name.gsub(' ','_') + '_hours'
@@ -60,6 +59,16 @@ module OutputHelper
       end
     end
     return cost
-  end  
+  end
+  
+  def display_description(type)
+    @types[type].each do |d|
+      if(is_selected(d.name))
+        d = check_mod(d)
+        description = @build.saved_state[description]
+        puts description
+      end
+    end
+  end
   
 end

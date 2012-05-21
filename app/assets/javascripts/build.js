@@ -8,7 +8,6 @@ $(document).ready(function(){
 		hourly_rate = $('input#build_hourly_rate').val();
 		display_prices();
 		display_sums();
-		console.log('init...');
 	}
 	
 	$('.basic').click(function (e) {
@@ -128,8 +127,6 @@ $(document).ready(function(){
 	});
 	
 	function display_sums(){
-		
-		console.log('displaying sums!');
 		
 		/* Design Totals */
 		design_ptotal = 0;

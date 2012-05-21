@@ -3,8 +3,6 @@
 	<%= stylesheet_link_tag('/css/output.css', :media => :print) %>
 </head>
 
-Test string: <%= @test %>
-
 <%
 
 #Organize data for output
@@ -16,35 +14,26 @@ frontend_cost = (frontend_hours.to_i * @build.hourly_rate.to_i)
 cms_hours = get_cms_hours()
 cms_cost = get_cms_cost()
 
+stotal_hours = design_hours + frontend_hours + cms_hours
+stotal_price = design_cost + frontend_cost + cms_cost
+
+pm_hours = (stotal_hours * @pmcoeff).ceil
+pm_cost = pm_hours * @build.hourly_rate.to_i
+qa_hours = (stotal_hours * @qacoeff).ceil
+qa_cost = qa_hours * @build.hourly_rate.to_i
+planning_hours = (stotal_hours * @planningcoeff).ceil
+planning_cost = planning_hours * @build.hourly_rate.to_i
+
+gtotal_hours = stotal_hours + pm_hours + qa_hours + planning_hours
+gtotal_price = stotal_price + pm_cost + qa_cost + planning_cost
+
 %>
 
-<hr />
 <div id="mainContainer">
-<%#= render 'output/coverpage' %>
-
-<!--
-<h1>Front End Pages</h1>
-<ul>
-	<%# @front_end.each do |d| %>
-	<%# if(is_selected(d.name)) %>
-	<li>
-		<h3><%#= is_selected(d.name) %></h3>
-		<p><%#= d.description %></p>
-	</li>
-	<%# end %>
-<%# end %>
-</ul>
-
-<h1><%#= @build.cms_type.capitalize %> CMS Pages</h1>
-<ul>
-<%# @cms[@build.cms_type].each do |d| %>
-	<li><%#= d.name %></li>
-<%# end %>
-</ul>-->
-
-<%#= render 'output/client_information' %>
-<%#= render 'output/main_block' %>
-
+	
+<%= render 'output/coverpage' %>
+<%= render 'output/client_information' %>
+<%= render 'output/main_block' %>
 
 <h2>PROJECT TIME &amp; COST</h2>
 <table cellpadding="0" cellspacing="0" id="saved_table">
@@ -52,37 +41,54 @@ cms_cost = get_cms_cost()
 	<th class="header">Component</th><th class="header">Hours</th><th class="header">Price</th>
 </tr>
 <tr>
-	<td>Design</td><td><%= design_hours %></td><td>$<%= design_cost %></td>
+	<td><p>Design</p></td>
+	<td><p><%= design_hours %></p></td>
+	<td><p><%= number_to_currency(design_cost, :unit => '$') %></p></td>
 </tr>
 <tr>
-	<td>Front End Coding</td><td><%= frontend_hours %></td><td>$<%= frontend_cost %></td>
+	<td><p>Front End Coding</p></td>
+	<td><p><%= frontend_hours %></p></td>
+	<td><p><%= number_to_currency(frontend_cost, :unit => '$') %></p></td>
 </tr>
 <tr>
-	<td>CMS Features</td><td><%= cms_hours %></td><td>$<%= cms_cost %></td>
+	<td><p>CMS Features</p></td>
+	<td><p><%= cms_hours %></p></td>
+	<td><p><%= number_to_currency(cms_cost, :unit => '$') %></p></td>
+</tr>
+<tr>
+	<td><p>QA</p></td>
+	<td><p><%= qa_hours %></p></td>
+	<td><p><%= number_to_currency(qa_cost, :unit => '$') %></p></td>
+</tr>
+<tr>
+	<td><p>Planning / Discovery</p></td>
+	<td><p><%= planning_hours %></p></td>
+	<td><p><%= number_to_currency(planning_cost, :unit => '$') %></p></td>
+</tr>
+<tr>
+	<td><p>Project Management</p></td>
+	<td><p><%= pm_hours %></p></td>
+	<td><p><%= number_to_currency(pm_cost, :unit => '$') %></p></td>
+</tr>
+<tr>
+	<th><p>Grand Total</p></th>
+	<th><p><%= gtotal_hours %></p></th>
+	<th><p><%= number_to_currency(gtotal_price, :unit => '$') %></p></th>
 </tr>
 </table>
 
-<!-- @TODO -->
-
-<!--
-<tr><th><span class="error">Additional</span><th></th><th></th></tr>
-<tr><td>QA</td><td><span class="qa_hours"><span></td><td>$<span class="qa_cost"></span></td></tr>
-<tr><td>Planning / Discovery</td><td><span class="qa_hours"><span></td><td>$<span class="qa_cost"></span></td></tr>
-<tr><td>Project Management</td><td><span class="pm_hours"><span></td><td>$<span class="pm_cost"></span></td></tr>
--->
-</table>
 <h2>WEBSITE PAYMENT TERMS</h2>
 <h3>AMOUNT DUE</h3>
 <p><strong>Payment 1:</strong> 50% Due to being work and upon endorsement of this agreement
-$<span class="total_50"></span></p>
+<span class="total_50"><%= number_to_currency(gtotal_price * 0.5) %></span></p>
 <p><strong>Payment 2:</strong> 25% Due upon completion of mockups or 2 months after kick-off date; whichever is first
-$<span class="total_25"></span></p>
+<span class="total_25"><%= number_to_currency(gtotal_price * 0.25) %></span></p>
 <p><strong>Payment 3:</strong> 25% Due upon completion of quality assurance testing and prior to launch **
-$<span class="total_25"></span></p>
-<p><strong>TOTAL:</strong> $<span class="total_100"></span></p>
-<p>**Content transfer and product migration being completed by Client may not delay final payment</p>
-
-<p>Initials ______________</p><p>	Date ____________</p>
+<span class="total_25"><%= number_to_currency(gtotal_price * 0.25) %></span></p>
+<p><strong>TOTAL:</strong> <span class="total_100"><%= number_to_currency(gtotal_price, :unit => '$') %></span></p>
+<em>**Content transfer and product migration being completed by Client may not delay final payment</em>
+<br /><br />
+<p>Initials _______________________________________</p><p>	Date _______________________________________</p>
 
 <h2>APPENDIX A: Feature Descriptions</h2>
 
@@ -92,14 +98,43 @@ $<span class="total_25"></span></p>
 
 <h3>Website Features and Capabilities</h3>
 
-<?php echo $this->get_dsc('design'); ?>
-<?php echo $this->get_dsc('coding'); ?>
-<?php echo $this->get_dsc('f_cms'); ?>
-<?php 
+<div class="alt_box_c">
+<h3>Design Components</h3>
+<% @types['design'].each do |d| %>
+<% if(is_selected(d.name)) %>
+    <% d = check_mod(d) %>
+		<h4><%= d.name %></h4>
+    <p><%= d.description.html_safe %></p>
+  <% end %>
+<% end %>
+</div>
 
-$cms = lcfirst($this->get_cms());
-echo $this->get_dsc('ecomm-' . $cms); 
-?>
+<br /><br />
 
-<%#= render 'output/toe' %>
+<div class="alt_box_c">
+<h3>Front End Components</h3>
+<% @types['frontend'].each do |d| %>
+<% if(is_selected(d.name)) %>
+    <% d = check_mod(d) %>
+		<h4><%= d.name %></h4>
+    <p><%= d.description %></p>
+  <% end %>
+<% end %>
+</div>
+
+<br /><br />
+
+<div class="alt_box_c">
+<h3>CMS Components</h3>
+<% @cms[@build.cms_type].each do |d| %>
+<% if(is_cms_selected(d.name)) %>
+    <% d = check_mod(d) %>
+		<h4><%= d.name %></h4>
+    <p><%= d.description %></p>
+  <% end %>
+<% end %>
+</div>
+
+<%= render 'output/toe' %>
+
 </div>

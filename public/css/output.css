@@ -14,25 +14,27 @@ div#title_box h2 { color: #4cc8f3; font-size: 40px; font-weight: normal; margin-
 div#title_box h3 { color: #fff;font-size: 28px; font-weight: normal; margin-top: 10px; }
 
 div#presented { text-align: left; padding: 20px 0; }
-div#presented em { color: #666; font-style: none; margin: 12px; }
+div#presented em { color: #666; font-style: none; margin: 12px 0;  }
 div#presented p { color: #666; margin: 4px;}
-div#presented h3 { color: #0072bc; margin: 6px; margin-top: 18px; }
+div#presented h3 { color: #0072bc; margin: 18px 0; }
 div#presented h4 { color: #0072bc; font-weight: normal;margin: 4px; }
 
-div.alt_box { background: #fdfdfd; padding: 30px; border: 1px solid #ddd; }
-
+div.alt_box { background: #fdfdfd; padding: 30px; border: 1px solid #ddd; margin: 20px 0 40px 0; }
+div.alt_box_c { background: #fdfdfd; padding: 20px; border: 1px solid #ddd; }
 h1 { color: #fff; font-size: 70px;  }
 h2 { color: #4cc8f3; font-size: 40px; font-weight: normal; margin: 30px 0px 20px 0; }
-h3 { color: #fff;font-size: 28px; font-weight: normal; margin-top: 10px; }
+h3 { color: #fff; font-size: 28px; font-weight: normal; margin: 16px 0; }
 strong { color: #0072bc; }
 em { color: #666; font-style: none; margin: 12px; }
 p { color: #666; margin: 4px; line-height: 1.5em; margin: 12px 0; }
-h3 { color: #0072bc; margin: 6px; margin-top: 18px; }
-h4 { color: #0072bc; font-weight: normal;margin: 4px; }
+h3 { color: #0072bc;  margin-top: 18px; }
+h4 { color: #0072bc; font-weight: normal;margin: 12px 0; }
 
 ul, ol { list-style-position: inside; }
 ul li, ol li { margin: 12px 0; color: #0072bc; }
 
-table { margin: 30px 0 ;}
+table { margin: 30px 0 ; color: #666; }
+table p { color: #666; }
+table th { color: #666; background: #ededed; text-align: left; }
 table#saved_table { }
 table#saved_table td, table#saved_table th { padding: 12px; border: 1px solid #dedede; }
