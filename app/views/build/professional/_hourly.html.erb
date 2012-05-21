@@ -1,12 +1,12 @@
 <div id="hourly_box">
   <h1 class="hourly_h1">Hourly Rate: $</h1>
-	<%#= form_for @build, :url => hourly_path,
+	<%= form_for @build, :url => hourly_path,
 										 :remote => true, 
 										 :method => :put,
 										 :html => { :id => 'hourly_rate_form' } do |h| %>
-		<%#= h.hidden_field(:id) %>
-		<%#= h.text_field(:hourly_rate, :class => 'hourly_rate' ) %>
-		<%#= submit_tag '', :class => 'hourly_rate_button' %>
-	<%# end %>
+		<%= h.hidden_field(:id) %>
+		<%= h.text_field(:hourly_rate, :class => 'hourly_rate' ) %>
+		<%= submit_tag '', :class => 'hourly_rate_button' %>
+	<% end %>
   <div class="clear"></div>
 </div>

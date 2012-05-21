@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   def new
-		@user = User.new
+	 #@user = User.new
   end
   
   def create
@@ -11,4 +11,9 @@ class UsersController < ApplicationController
   		render "new"
   	end
   end
+  
+  def index
+    render new
+  end
+  
 end

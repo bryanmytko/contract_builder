@@ -3,9 +3,11 @@
 one:
   name: MyString
   hours: MyString
-  type: 
+  page_type: MyString
+  description: MyString
 
 two:
   name: MyString
   hours: MyString
-  type: 
+  page_type: MyString
+  description: MyString

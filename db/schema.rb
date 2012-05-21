@@ -11,15 +11,15 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120508191902) do
+ActiveRecord::Schema.define(:version => 20120521203627) do
 
   create_table "builds", :force => true do |t|
     t.integer  "contract_id"
     t.string   "saved_state"
     t.string   "hourly_rate"
+    t.string   "cms_type"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
-    t.string   "cms_type"
   end
 
   create_table "contracts", :force => true do |t|
@@ -73,9 +73,9 @@ ActiveRecord::Schema.define(:version => 20120508191902) do
     t.string   "name"
     t.string   "hours"
     t.string   "page_type"
+    t.string   "description"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
-    t.string   "description"
   end
 
   create_table "professionals", :force => true do |t|
@@ -85,9 +85,9 @@ ActiveRecord::Schema.define(:version => 20120508191902) do
     t.string   "email"
     t.string   "phone"
     t.string   "url"
-    t.string   "type"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.string   "contract_type"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
   end
 
   create_table "users", :force => true do |t|
