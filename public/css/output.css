@@ -33,6 +33,8 @@ h4 { color: #0072bc; font-weight: normal;margin: 12px 0; }
 ul, ol { list-style-position: inside; }
 ul li, ol li { margin: 12px 0; color: #0072bc; }
 
+ol#toe li { color: #666; font-size: 13px; }
+
 table { margin: 30px 0 ; color: #666; }
 table p { color: #666; }
 table th { color: #666; background: #ededed; text-align: left; }
