@@ -1,7 +1,7 @@
 class SessionsController < ApplicationController
   def new
     @title = "Login"
-    session_check
+    #session_check
   end
   
   def create
