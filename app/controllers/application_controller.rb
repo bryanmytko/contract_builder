@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
   private
   
   def current_user
-    #reset_session
+    reset_session
     session[:user_id] ||= false
     if(session[:user_id])
       user = User.find(session[:user_id])
