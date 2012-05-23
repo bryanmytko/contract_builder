@@ -1,1 +1,14 @@
-hi
+<div id="login_box">
+	<h1>Create User</h1>
+<%= form_for @user, :html => { :id => 'login_form' } do |p| %>
+	<%= p.label(:email,"User name or email:") %>
+	<%= p.text_field :email, :id => 'email' %>
+  <div class="clear"></div>
+	<%= p.label(:password,"Password:") %>
+	<%= p.text_field :password %>
+	<div class="clear"></div>
+	<%= label_tag %>
+  <%= submit_tag('',:id=>'login_button') %>
+	<div class="clear"></div>
+<% end %>
+</div>

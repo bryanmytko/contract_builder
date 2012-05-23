@@ -5,7 +5,14 @@ class ApplicationController < ActionController::Base
   private
   
   def current_user
-    @current_user ||= User.find(session[:user_id]) if session[:user_id]
+    #reset_session
+    session[:user_id] ||= false
+    if(session[:user_id])
+      user = User.find(session[:user_id])
+      @current_user ||= User.find(session[:user_id]) if session[:user_id]
+    else
+      return false
+    end
   end
   
   protected
