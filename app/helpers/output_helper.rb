@@ -22,7 +22,15 @@ module OutputHelper
     @modifications.each do |m|
       if(obj.id.to_s == m.template_id.to_s)
         return m
-        #abort(m.description)
+      end
+    end
+    return obj
+  end
+  
+  def check_cms_mod(obj)
+    @modification_pages.each do |m|
+      if(obj.id.to_s == m.template_id.to_s)
+        return m
       end
     end
     return obj

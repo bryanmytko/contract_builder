@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  follow_up: MyString
+  next_step: MyString
+  contract_id: 1
+
+two:
+  follow_up: MyString
+  next_step: MyString
+  contract_id: 1

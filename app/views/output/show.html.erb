@@ -104,7 +104,7 @@ gtotal_price = stotal_price + pm_cost + qa_cost + planning_cost
 <% if(is_selected(d.name)) %>
     <% d = check_mod(d) %>
 		<h4><%= d.name %></h4>
-    <p><%= d.description.html_safe %></p>
+    <div class="feature_description"><%= d.description.html_safe %></div>
   <% end %>
 <% end %>
 </div>
@@ -117,7 +117,7 @@ gtotal_price = stotal_price + pm_cost + qa_cost + planning_cost
 <% if(is_selected(d.name)) %>
     <% d = check_mod(d) %>
 		<h4><%= d.name %></h4>
-    <p><%= d.description %></p>
+    <div class="feature_description"><%= d.description.html_safe %></div>
   <% end %>
 <% end %>
 </div>
@@ -128,9 +128,9 @@ gtotal_price = stotal_price + pm_cost + qa_cost + planning_cost
 <h3>CMS Components</h3>
 <% @cms[@build.cms_type].each do |d| %>
 <% if(is_cms_selected(d.name)) %>
-    <% d = check_mod(d) %>
+    <% d = check_cms_mod(d) %>
 		<h4><%= d.name %></h4>
-    <p><%= d.description %></p>
+    <div class="feature_description"><%= d.description.html_safe %></div>
   <% end %>
 <% end %>
 </div>

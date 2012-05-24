@@ -1,12 +1,12 @@
 <div id="build">
 	<div id="build_main">
 		<div id="pro_build_design">		
-		  <%= render 'build/professional/hourly' %>
-			
+		  <%= render 'build/professional/hourly' %>	
 			<div class="clear"></div>
 			<%= render 'build/professional/mod_design_form' %>
 			<%= render 'build/professional/mod_pages_form' %> 
-			<%= form_for @build, :html => { :id => 'save_pro' } do |b| %>		    
+			<%= form_for @build, :html => { :id => 'save_pro' } do |b| %>	
+			<%= submit_tag "" , :class => 'save_button first_save_button' %>		    
 			<%= render 'build/professional/design' %>
 			<%= render 'build/professional/frontend' %>			
 

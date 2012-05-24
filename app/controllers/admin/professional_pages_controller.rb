@@ -28,6 +28,7 @@ class Admin::ProfessionalPagesController < ApplicationController
 									 'Ecommerce - Other',
 									 'Ecommerce - Setup'
 								 ]
+		session_check('index')
 	end
 
 	def create

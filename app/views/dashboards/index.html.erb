@@ -1,9 +1,8 @@
 <div id="dashboard" class="dash">
 
 	<h1>Dashboard</h1>
-
-	<a id="show_webready" class="dashboard_tab">Web-Ready Contracts</a>
-	<a id="show_professional" class="dim dashboard_tab">Professional Contracts</a>
+	<a id="show_webready" class="<%= session_selected('webready') %>dashboard_tab">Web-Ready Contracts</a>
+	<a id="show_professional" class="<%= session_selected('professional') %>dashboard_tab">Professional Contracts</a>
 	<div class="clear"></div>
 
 	<%= render "webready_contracts" %>

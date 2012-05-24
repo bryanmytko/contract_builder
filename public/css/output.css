@@ -21,6 +21,7 @@ div#presented h4 { color: #0072bc; font-weight: normal;margin: 4px; }
 
 div.alt_box { background: #fdfdfd; padding: 30px; border: 1px solid #ddd; margin: 20px 0 40px 0; }
 div.alt_box_c { background: #fdfdfd; padding: 20px; border: 1px solid #ddd; }
+
 h1 { color: #fff; font-size: 70px;  }
 h2 { color: #4cc8f3; font-size: 40px; font-weight: normal; margin: 30px 0px 20px 0; }
 h3 { color: #fff; font-size: 28px; font-weight: normal; margin: 16px 0; }
@@ -40,3 +41,6 @@ table p { color: #666; }
 table th { color: #666; background: #ededed; text-align: left; }
 table#saved_table { }
 table#saved_table td, table#saved_table th { padding: 12px; border: 1px solid #dedede; }
+
+.feature_description { font-size: 13px; padding: 0 0 0 30px; margin: 0 0 20px 0; border-left: 1px solid #d1d1d1; }
+.feature_description ul { margin-left: 16px; }

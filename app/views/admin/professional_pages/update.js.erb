@@ -11,7 +11,10 @@ $('.update_button').bind('ajax:success', function(data) {
 	$.ajax({
 		url: "professional_pages/" + id,
 		type: 'put',
-		data: '&professional_page[hours]=' + hours + '&professional_page[name]=' + n + '&professional_page[cost]=' + cost + '&professional_page[description]=' + description
+		data: '&professional_page[hours]=' + hours + '&professional_page[name]=' + n + '&professional_page[cost]=' + cost + '&professional_page[description]=' + description,
+		success: function(){
+			$('.update_button').unbind()
+		}
 	});
 	
 });

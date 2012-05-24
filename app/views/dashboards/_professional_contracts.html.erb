@@ -1,11 +1,10 @@
-<div id="show_professional" class="dashboard_data_container dashboard_professional hide">
+<div id="show_professional" class="dashboard_data_container dashboard_professional<%= session_table('professional') %>">
 <table id="dashboard_table" cellpadding="0" cellspacing="0">
 
 	<tr>
 	  <th>&nbsp;</th>
 	  <th><a href="#" rel="sort" class="follow_up_date">Follow-up Date</a></th>
 	  <th><a href="#" rel="sort" class="company">Contact Information</a></th>
-	  <th><a href="#" rel="sort" class="value">1 Year Value</a></th>
 	  <th><a href="#" rel="sort" class="last_mod">Last Modified</a></th>
 	  <th><a href="#" rel="sort" class="next_step">Next Step</a></th><th>&nbsp;</th>
 	</tr>
@@ -15,7 +14,7 @@
 	<tr>
 
 		<td><%= link_to "",edit_build_path(:id => w.id), :class => "dashboard_edit" %></td>
-		<td>03/12/2012</td>
+		<td><%= w.updated_at.strftime("%B %d, %Y")  %></td>
 		<td><p><%= w.company %></p>
 				<p><%= w.name %></p>
 				<p><%= w.address %></p>
@@ -24,10 +23,9 @@
 				<p><%= w.url %></p>
 				<p><%= link_to 'edit', edit_contract_path(:id => w.id) %></p>
 		</td>
-		<td>$0</td>
-		<td>4/6/2012</td>
+		<td><%= w.updated_at.strftime("%B %d, %Y")  %></td>
 		<td>Email Client</td>
-		<td><a href="#" class="dashboard_archive" id="archive_129"></a></td>
+		<td></td>
 	</tr>
 	
 	<% end %>

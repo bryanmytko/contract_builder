@@ -128,6 +128,7 @@ input.output_html_button { width: 183px; height: 41px; background: url(../img/ou
 input.output_html_button:hover { background-position: 0 bottom; cursor: pointer; }
 div#build_main { width: 617px; }
 div#build input.save_button { background: url(../img/build_buttons.png) -166px 0 no-repeat; height: 41px; width: 94px; border: 0; float: left; }
+div#build input.first_save_button { position: absolute; top: 0px; }
 div#build input.save_button:hover { background-position: -166px bottom; cursor: pointer; }
 div#build input.save_back_button { background: url(../img/build_buttons.png) 0 0 no-repeat; height: 41px; width: 155px; border: 0; float: left; margin-right: 12px; }
 div#build input.save_back_button:hover { background-position: 0 bottom; cursor: pointer; }

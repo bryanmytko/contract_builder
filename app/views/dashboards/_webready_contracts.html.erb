@@ -1,4 +1,4 @@
-<div id="show_webready" class="dashboard_data_container dashboard_webready">
+<div id="show_webready" class="dashboard_data_container dashboard_webready<%= session_table('webready') %>">
 <table id="dashboard_table" cellpadding="0" cellspacing="0">
 	<tr>
 	  <th>&nbsp;</th>
@@ -33,7 +33,7 @@
 </table>
 
 <div class="dashboard_button_container">
-    <%= link_to "", new_contract_path(:type => 'webready'), :class => "start_new_button" %>
+    <%#= link_to "", new_contract_path(:type => 'webready'), :class => "start_new_button" %>
 </div>
 
 </div>

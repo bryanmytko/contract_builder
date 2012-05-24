@@ -2,6 +2,7 @@ class BuildController < ApplicationController
 
 	def edit
 	  #Get contract data, build data
+	  session[:tab] = 'professional'
 		@contract = Contract.find(params[:id])
 		@build = Build.find_by_contract_id(params[:id])
 		
@@ -18,10 +19,12 @@ class BuildController < ApplicationController
 		unless @build.nil?
 		@modifications = Modifications.find_all_by_build_id(@build.id)
 		@modification_pages = ModificationPages.find_all_by_build_id(@build.id)
-	end
+	  end
 		
 		@cms = { 'webmodulite' => @webmodulite, 'magento' => @magento, 'wordpress' => @wordpress }
-		render @contract.contract_type
+		
+		session_check(@contract.contract_type)
+
 	end
 	
 	def new
@@ -49,16 +52,14 @@ class BuildController < ApplicationController
 	end
 
 	def update
-	  if(params[:output])
-	    redirect_to output_path
-	  else
 	    @build = Build.find_by_id(params[:id])
   	  @saved_state = params
   	  @build.update_attribute(:saved_state, @saved_state)
-  	  if @build.save
+  	  if params[:output]
+  	    redirect_to output_path
+  	  elsif @build.save
   	  	redirect_to dashboards_path
   	  end
-  	end
 	end
 	
 end

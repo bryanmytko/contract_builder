@@ -1,4 +1,4 @@
-$('.update_button').bind('ajax:success', function(data) {
+$('.update_button').bind('ajax:complete', function(data) {
 
 	$(this).closest('form').fadeOut().fadeIn();
 	
@@ -7,10 +7,17 @@ $('.update_button').bind('ajax:success', function(data) {
 	var n = $(this).parent().parent().find('#professional_template_name').val();
 	var description = $(this).parent().parent().find('textarea').val();
 	
+	$(this).unbind();
+	
 	$.ajax({
 		url: "professional_templates/" + id,
 		type: 'put',
-		data: '&professional_template[hours]=' + hours + '&professional_template[name]=' + n + '&professional_template[description]=' + description
+		data: '&professional_template[hours]=' + hours + '&professional_template[name]=' + n + '&professional_template[description]=' + description,
+		success: function(){
+			$('.update_button').unbind();	
+		}
 	});
+	
+	
 	
 });

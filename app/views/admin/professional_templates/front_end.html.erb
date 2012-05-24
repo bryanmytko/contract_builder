@@ -6,7 +6,7 @@
 	
 		<div class="admin_record admin_edit">
 	
-		<%= form_for [:admin, t], :remote => true, :html => { :class => 'update', :method => :put } do |f| %>
+		<%= form_for [:admin, t], :remote => false, :html => { :class => 'update', :method => :put } do |f| %>
 
 		<%= f.hidden_field(:id, :class => 'template_id') %>
 

@@ -1,19 +1,22 @@
 class UsersController < ApplicationController
+  
+  #Used to create users. Not implemented yet. 
+  
   def new
-	 @user = User.new
+	 #@user = User.new
   end
   
   def create
-  	@user = User.new(params[:user])
-  	if @user.save
-  		redirect_to root_url, :notice => "Account created!"
-  	else
-  		render "new"
-  	end
+  #	@user = User.new(params[:user])
+  	#if @user.save
+  	#	redirect_to root_url, :notice => "Account created!"
+  	#else
+  	#	render "new"
+  #	end
   end
   
   def index
-    render new
+   # render new
   end
   
 end
