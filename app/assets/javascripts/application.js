@@ -51,7 +51,7 @@ $('p.f_error').each(function(){
 
 $('input').focus(function(){
 	
-	$(this).css({"border" : "none"});
+//	$(this).css({"border" : "none"});
 	$(this).parent().next('p.f_error').fadeOut();
 });
 

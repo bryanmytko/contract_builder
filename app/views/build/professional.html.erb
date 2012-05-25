@@ -9,13 +9,10 @@
 			<%= submit_tag "" , :class => 'save_button first_save_button' %>		    
 			<%= render 'build/professional/design' %>
 			<%= render 'build/professional/frontend' %>			
-
-			<%= render :partial => 'build/professional/cms_selection' %>
-			
+			<%= render :partial => 'build/professional/cms_selection' %>	
 			<%= render :partial => 'build/professional/cms_pages', :locals => { :cms => @cms } %>
 		</div>	
-		<%= submit_tag "", :confirm => 'Are you sure?', :class => 'save_button' %>		
-		
+		<%= submit_tag "", :class => 'save_button' %>		
 	</div>
 	<%= render 'build/professional/sidebar' %>	
 	<% end %>

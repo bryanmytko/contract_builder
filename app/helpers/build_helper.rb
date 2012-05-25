@@ -98,7 +98,7 @@ module BuildHelper
 	    if(m.template_id.to_s == template_id)
 	      return m.id
 	    else
-	      return 0
+	      0
 	    end
 	  end
 	  return 0

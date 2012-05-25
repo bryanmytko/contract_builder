@@ -1,3 +1,18 @@
+<script type="text/javascript" src="/js/jswysiwyg/jquery.wysiwyg.js"></script>
+<script type="text/javascript">
+$(function(){
+$('#wysiwyg').wysiwyg({
+    controls: {
+        strikeThrough: { visible: true },
+        underline: { visible: true },
+        subscript: { visible: true },
+        superscript: { visible: true },
+    },
+ 		css: '/js/jswysiwyg/jquery.wysiwyg.css'
+
+});
+});
+</script>
 <div class="clear"></div>
 <div id="basic-modal-content"><div class="clear"></div>
 
@@ -18,8 +33,9 @@
 <%= text_field(:modification, :hours, :class => 'mod_hours') %>
 
 <%= label(:description, 'Description: ') %>
-<%= text_area(:modification, :description, :class => 'mod_description') %>
-
+	<div class="clear"></div>
+<%= text_area(:modification, :description, :class => 'mod_description', :id => 'wysiwyg') %>
+	<div class="clear"></div>
 <%= label(:save, '') %>
 <%= submit_tag('',:id=>'save', :class => 'save_button') %>
 <div class="clear"></div>

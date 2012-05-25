@@ -11,7 +11,7 @@ $(document).ready(function(){
 	}
 	
 	$('.basic').click(function (e) {
-		
+		console.log('basic modal.')
 		var tbl = $(this).parents('tr');
 		var mod_name = tbl.find('p.name_text').html();
 		var mod_hours = tbl.find('span.hours_text').html();
@@ -25,9 +25,11 @@ $(document).ready(function(){
 		$('div#basic-modal-content input.mod_cost').val(mod_cost);
 		$('div#basic-modal-content input.mod_hours').val(mod_hours);
 		$('div#basic-modal-content input.mod_id').val(mod_id);
+		
 		$('div#basic-modal-content textarea.mod_description').text(mod_description);
+		
 		$('div#basic-modal-content div#contact-container input.template_id').val(template_id);
-
+		
 		$('div#basic-modal-content').modal();
 		
 		return false;
@@ -39,7 +41,8 @@ $(document).ready(function(){
 		var tbl = $(this).parents('tr');
 		var mod_name = tbl.find('p.name_text').html();
 		var mod_hours = tbl.find('span.hours_text').html();
-		var mod_cost = tbl.find('span.price_ecomm_text').html();
+		var mod_cost = tbl.find('span.cms_price_text').html();
+		console.log('Mod Cost: ' + mod_cost);
 		var mod_description = tbl.find('input.description').val();
 		var mod_id = tbl.find('input.get_modification_id').val();
 		var template_id = tbl.find('input.template_id').val();
@@ -99,6 +102,10 @@ $(document).ready(function(){
 		if($(this).val() == '0') $(this).val('');
 	});
 	
+	$('input').blur(function(){
+		if($(this).val() == '') $(this).val('0');
+	});
+	
 	input_design_hours.keyup(function(event){	
 		var tbl = $(this).parents('tr');
 		var price_text = tbl.find('span.price_text');		
@@ -128,77 +135,77 @@ $(document).ready(function(){
 	
 	function display_sums(){
 		
-		/* Design Totals */
-		design_ptotal = 0;
-		design_htotal = 0;
-		$('span.design_price_text').each(function(){	
-			var val = parseInt($(this).html());
-			if(!isNaN(val)){
-				design_ptotal += val;
-			}
-		});
-		$('span.design_hours_text').each(function(){
-			var val = parseInt($(this).html());
-			var q = $(this).parents('tr').find('input.design_hours').val();
-			if(!isNaN(val)){
-				design_htotal += val * q;
-			}	
-		});
-		/* Front End Totals */
-		frontend_ptotal = 0;
-		frontend_htotal = 0;
-		$('span.frontend_price_text').each(function(){
-			var val = parseInt($(this).html());
-			if(!isNaN(val)){
-				frontend_ptotal += val;
-			}
-		});
-		$('span.frontend_hours_text').each(function(){
-			var val = parseInt($(this).html());
-			var q = $(this).parents('tr').find('input.frontend_hours').val();
-			if(!isNaN(val)){
-				frontend_htotal += val * q;
-			}
-		});
-		
-		/* CMS Totals */
-		cms_ptotal = 0;
-		cms_htotal = 0;
-		cms_inputs.each(function(){
-			if ($(this).is(':checked')) {
-				var h = parseInt($(this).parents('tr').find('span.cms_hours_text').html());
-				var p = parseInt($(this).parents('tr').find('span.cms_price_text').html());
-				if(!isNaN(h)) cms_htotal += h;
-				if(!isNaN(p)) cms_ptotal += p;
-			}
-		});
-		
-		design_total_display_price.html(design_ptotal);
-		design_total_display_hours.html(design_htotal);
-		frontend_total_display_price.html(frontend_ptotal);
-		frontend_total_display_hours.html(frontend_htotal);
-		cms_total_display_hours.html(cms_htotal);
-		cms_total_display_price.html(cms_ptotal);
-		
-		var sub_total_hours = design_htotal + frontend_htotal + cms_htotal;
+			/* Design Totals */
+			design_ptotal = 0;
+			design_htotal = 0;
+			$('span.design_price_text').each(function(){	
+				var val = parseInt($(this).html());
+				if(!isNaN(val)){
+					design_ptotal += val;
+				}
+			});
+			$('span.design_hours_text').each(function(){
+				var val = parseInt($(this).html());
+				var q = $(this).parents('tr').find('input.design_hours').val();
+				if(!isNaN(val)){
+					design_htotal += val * q;
+				}	
+			});
+			/* Front End Totals */
+			frontend_ptotal = 0;
+			frontend_htotal = 0;
+			$('span.frontend_price_text').each(function(){
+				var val = parseInt($(this).html());
+				if(!isNaN(val)){
+					frontend_ptotal += val;
+				}
+			});
+			$('span.frontend_hours_text').each(function(){
+				var val = parseInt($(this).html());
+				var q = $(this).parents('tr').find('input.frontend_hours').val();
+				if(!isNaN(val)){
+					frontend_htotal += val * q;
+				}
+			});
 
-		var qa_total_hours = Math.ceil(sub_total_hours*qa_coeff);
-		var pm_total_hours = Math.ceil(sub_total_hours*pm_coeff);
-		var planning_total_hours = Math.ceil(sub_total_hours*planning_coeff);
-		
-		$('span.sidebar_planning_hours_text').html(planning_total_hours);
-		$('span.sidebar_pm_hours_text').html(pm_total_hours);
-		$('span.sidebar_qa_hours_text').html(qa_total_hours);
-		
-		$('span.sidebar_planning_price_text').html(planning_total_hours*hourly_rate);
-		$('span.sidebar_pm_price_text').html(pm_total_hours*hourly_rate);
-		$('span.sidebar_qa_price_text').html(qa_total_hours*hourly_rate);
-	
-		grand_total_hours = sub_total_hours + qa_total_hours + pm_total_hours + planning_total_hours;
-		grand_total_price = ((design_htotal + frontend_htotal + pm_total_hours + qa_total_hours + planning_total_hours) * hourly_rate) + cms_ptotal;
+			/* CMS Totals */
+			cms_ptotal = 0;
+			cms_htotal = 0;
+			cms_inputs.each(function(){
+				if ($(this).is(':checked')) {
+					var h = parseInt($(this).parents('tr').find('span.cms_hours_text').html());
+					var p = parseInt($(this).parents('tr').find('span.cms_price_text').html());
+					if(!isNaN(h)) cms_htotal += h;
+					if(!isNaN(p)) cms_ptotal += p;
+				}
+			});
 
-		$('span.sidebar_grand_hours_text').html(grand_total_hours);
-		$('span.sidebar_grand_price_text').html(grand_total_price);
+			design_total_display_price.html(design_ptotal);
+			design_total_display_hours.html(design_htotal);
+			frontend_total_display_price.html(frontend_ptotal);
+			frontend_total_display_hours.html(frontend_htotal);
+			cms_total_display_hours.html(cms_htotal);
+			cms_total_display_price.html(cms_ptotal);
+
+			var sub_total_hours = design_htotal + frontend_htotal + cms_htotal;
+
+			var qa_total_hours = Math.ceil(sub_total_hours*qa_coeff);
+			var pm_total_hours = Math.ceil(sub_total_hours*pm_coeff);
+			var planning_total_hours = Math.ceil(sub_total_hours*planning_coeff);
+
+			$('span.sidebar_planning_hours_text').html(planning_total_hours);
+			$('span.sidebar_pm_hours_text').html(pm_total_hours);
+			$('span.sidebar_qa_hours_text').html(qa_total_hours);
+
+			$('span.sidebar_planning_price_text').html(planning_total_hours*hourly_rate);
+			$('span.sidebar_pm_price_text').html(pm_total_hours*hourly_rate);
+			$('span.sidebar_qa_price_text').html(qa_total_hours*hourly_rate);
+
+			grand_total_hours = sub_total_hours + qa_total_hours + pm_total_hours + planning_total_hours;
+			grand_total_price = ((design_htotal + frontend_htotal + pm_total_hours + qa_total_hours + planning_total_hours) * hourly_rate) + cms_ptotal;
+
+			$('span.sidebar_grand_hours_text').html(grand_total_hours);
+			$('span.sidebar_grand_price_text').html(grand_total_price);
 		
 	}
 	

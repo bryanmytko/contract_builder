@@ -126,12 +126,14 @@ gtotal_price = stotal_price + pm_cost + qa_cost + planning_cost
 
 <div class="alt_box_c">
 <h3>CMS Components</h3>
+<% unless @build.cms_type.nil? %>
 <% @cms[@build.cms_type].each do |d| %>
 <% if(is_cms_selected(d.name)) %>
     <% d = check_cms_mod(d) %>
 		<h4><%= d.name %></h4>
     <div class="feature_description"><%= d.description.html_safe %></div>
   <% end %>
+	<% end %>
 <% end %>
 </div>
 
