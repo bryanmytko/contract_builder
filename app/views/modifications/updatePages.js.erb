@@ -1,10 +1,16 @@
 $(document).ready(function(){
+	
+	function htmlDecode(input){
+	  var e = document.createElement('div');
+	  e.innerHTML = input;
+	  return e.childNodes[0].nodeValue;
+	}
 
 	var mod_id = '<%= @modification.id %>';
 	var mod_name = '<%= @modification.name %>';
 	var mod_hours = '<%= @modification.hours %>';
 	var mod_cost = '<%= @modification.cost %>';
-	var mod_description = '<%= @modification.description %>';
+	var mod_description = '<%=j @modification.description.to_s %>';
 	var template_id = '<%= @modification.template_id %>';
 	
 	var tbl = $('input.template_page_id[value="' + template_id + '"]').parents('tr');
@@ -12,7 +18,7 @@ $(document).ready(function(){
 	tbl.find('p.name_text').html(mod_name);
 	tbl.find('span.hours_text').html(mod_hours);
 	tbl.find('input.get_modification_id').val(mod_id);
-	tbl.find('input.description').val(mod_description);
+	tbl.find('input.description').val(htmlDecode(mod_description));
 	tbl.find('span.cms_price_text').html(mod_cost);
 	
 	$.modal.close();

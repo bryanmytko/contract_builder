@@ -1,14 +1,13 @@
-<script type="text/javascript" src="/js/jswysiwyg/jquery.wysiwyg.js"></script>
 <div class="clear"></div>
 <div id="basic-modal-content"><div class="clear"></div>
 <div class="clear"></div>
-<div id="contact-container">
+<div id="contact-container" class="contact-container-small">
 <h1>Modification: </h1>
-<%= form_tag(modification_path, :remote => true, :method => :put)%>
+<%= form_tag(modification_path, :remote => true, :method => :put) %>
 <%= hidden_field(:modification, :mod_id, :class => 'mod_id') %>
-<%= hidden_field(:modification, :template_id, :class => 'template_id')%>
-<%= hidden_field(:modification, :build_id, :value => @build.id, :class => 'build_id')%>
-<%= hidden_field(:modification, :page_type, :value => 'design')%>
+<%= hidden_field(:modification, :template_id, :class => 'template_id') %>
+<%= hidden_field(:modification, :build_id, :value => @build.id, :class => 'build_id') %>
+<%= hidden_field(:modification, :page_type, :value => 'design') %>
 <%= label(:name, 'Name: ') %>
 <%= text_field(:modification, :name, :class => 'mod_name') %>
 <%= label(:hours, 'Hours: ') %>

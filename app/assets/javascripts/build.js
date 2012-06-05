@@ -12,7 +12,7 @@ $(document).ready(function(){
 	
 	$('.basic').click(function (e) {
 		
-		//$('#wysiwyg').wysiwyg("setContent", "<p>My new content</p>").wysiwyg("destroy")
+		$('div#basic-modal-content').modal();
 
 		var tbl = $(this).parents('tr');
 		var mod_name = tbl.find('p.name_text').html();
@@ -28,11 +28,9 @@ $(document).ready(function(){
 		$('div#basic-modal-content input.mod_hours').val(mod_hours);
 		$('div#basic-modal-content input.mod_id').val(mod_id);
 		
-		$('div#basic-modal-content textarea.mod_description').text(mod_description);
+		$('div#basic-modal-content textarea.mod_description').text(mod_description.replace('"','\''));
 		
 		$('div#basic-modal-content div#contact-container input.template_id').val(template_id);
-		
-		$('div#basic-modal-content').modal();
 
 		$('#wysiwyg').wysiwyg({
 		    controls: {
@@ -42,16 +40,18 @@ $(document).ready(function(){
 		        superscript: { visible: true },
 		    },
 		 		css: '/js/jswysiwyg/jquery.wysiwyg.css',
-				formHeight: '100px',
-				css: { padding: '0px 10px' },
+				formHeight: 30,
+				css: { padding: '0px 10px' }
 
 		});
-	
+
 		return false;
 		
 	});
 	
 	$('.basic_cms').click(function(e){
+		
+		$('div#basic-modal-content-pages').modal();
 		
 		var tbl = $(this).parents('tr');
 		var mod_name = tbl.find('p.name_text').html();
@@ -71,11 +71,22 @@ $(document).ready(function(){
 		$('div#basic-modal-content-pages input.mod_id').val(mod_id);
 		$('div#basic-modal-content-pages input.cms_type').val(cms_type);
 		$('div#basic-modal-content-pages input.feature_type').val(feature_type);
-		$('div#basic-modal-content-pages textarea.mod_description').text(mod_description);
+		$('div#basic-modal-content-pages textarea.mod_description').text(mod_description.replace('"','\''));
 		$('div#basic-modal-content-pages div#contact-container input.template_id').val(template_id);
 		
-		$('div#basic-modal-content-pages').modal();
-		
+		$('#wysiwygPage').wysiwyg({
+		    controls: {
+		        strikeThrough: { visible: true },
+		        underline: { visible: true },
+		        subscript: { visible: true },
+		        superscript: { visible: true },
+		    },
+		 		css: '/js/jswysiwyg/jquery.wysiwyg.css',
+				formHeight: 30,
+				css: { padding: '0px 10px' }
+
+		});
+
 		return false;
 		
 	});
