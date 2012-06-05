@@ -15,10 +15,12 @@ class ModificationsController < ApplicationController
     if (@params[:mod_id] == '0')
       @params.delete(:mod_id)
       @modification = Modification.create(@params)
+      @string = 'new'
     else
       @modification = Modification.find(@params[:mod_id])
       @params.delete(:mod_id)
       @modification.update_attributes(@params)
+      @string = @modification.description.html_safe
     end
     render 'updateTemplate'
   end

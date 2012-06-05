@@ -20,7 +20,7 @@ function ucfirst(str) {
 }
 
 $(document).ready(function(){
-
+	
 $('a.add_desc').live('click',function(){
 	$(this).parent().find('textarea').toggle();
 });
@@ -45,16 +45,11 @@ $('a#ecomm_change_link').click(function(){
 });
 
 $('p.f_error').each(function(){
-	
 	$(this).prev().children('input').css({ 'border' : '1px solid #f00'})	
 });
 
 $('input').focus(function(){
-	
-//	$(this).css({"border" : "none"});
 	$(this).parent().next('p.f_error').fadeOut();
 });
-
-
 
 });

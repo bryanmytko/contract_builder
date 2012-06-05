@@ -7,21 +7,6 @@ module BuildHelper
     ' cms_selection_hidden'
    end
   end
-  
-  
-  
-  
-	#return class for when CMS is already selected
-	#def is_cms_selected(cms_type)
-	  #return 'foo'
-	  #if (cms_type == @build.cms_type)
-	  #  return ''
-	 # else
-	    #return ' cms_selection_hidden'
-	 # end
-	# abort('is_cms_selected()')
-	# return ' cms_selection_hidden'
-	#end
 
   #array of features
 	def featuresArray
@@ -84,8 +69,6 @@ module BuildHelper
 	  @modification.each do |m|
 	    if(m.template_id == template_id)
 	      return m.id
-	    else
-	      return 0
 	    end
     end
     return 0
@@ -97,8 +80,6 @@ module BuildHelper
 	  @modification_page.each do |m|
 	    if(m.template_id.to_s == template_id)
 	      return m.id
-	    else
-	      0
 	    end
 	  end
 	  return 0

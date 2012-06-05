@@ -1,5 +1,5 @@
 $(document).ready(function(){
-	
+
 	var mod_id = '<%= @modification.id %>';
 	var mod_name = '<%= @modification.name %>';
 	var mod_hours = '<%= @modification.hours %>';
@@ -7,12 +7,6 @@ $(document).ready(function(){
 	var mod_description = '<%= @modification.description %>';
 	var template_id = '<%= @modification.template_id %>';
 	
-	console.log(mod_id);
-	console.log(mod_name);
-	console.log(mod_hours);
-	console.log(mod_description);
-	console.log(mod_cost);
-				
 	var tbl = $('input.template_page_id[value="' + template_id + '"]').parents('tr');
 	
 	tbl.find('p.name_text').html(mod_name);

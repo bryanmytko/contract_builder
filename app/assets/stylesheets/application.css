@@ -315,16 +315,15 @@ a.modification_button { display: block; margin: 0 0 0 32px; background: url(../i
 #modification { display: none; }
 #basic-modal-content, #basic-modal-content-pages { display: none; }
 #simplemodal-overlay {background-color:#000;}
-#simplemodal-container {background-color:#fff; border:8px solid #0072bc; padding:20px; -webkit-border-radius: 10px; }
+#simplemodal-container {background-color:#fff; border:8px solid #0072bc; padding:20px; -webkit-border-radius: 10px; height: 470px;  }
 
 #simplemodal-container form { width: 500px; }
 #simplemodal-container input { width: 282px; }
 
 
-#contact-container  input { width: 282px; height: 36px; background: url(../img/login_input.png) 0 0 no-repeat; 
-								border: 0; padding: 3px 10px; font-size: 16px; margin-top: 20px; display: block; float:left; }
-#contact-container  label { width: 150px; height: 36px; padding: 12px 20px 0 0; text-align: right; 
-								 color: #7f7f7f; font-weight: normal; margin-top: 20px; display: block; float: left; }
+#contact-container  input { width: 282px; height: 36px; background: url(../img/login_input.png) 0 0 no-repeat; border: 0; padding: 3px 10px; font-size: 16px; margin-top: 20px; display: block; float:left; }
+
+#contact-container  label { width: 150px; height: 36px; padding: 12px 20px 0 0; text-align: right; color: #7f7f7f; font-weight: normal; margin-top: 20px; display: block; float: left; }
 
 
 /* Container */
@@ -358,12 +357,9 @@ a.modification_button { display: block; margin: 0 0 0 32px; background: url(../i
 #contact-container input.save_button { cursor: pointer; background: url(../img/build_buttons.png) -166px 0 no-repeat; height: 41px; width: 94px; border: 0; float: left; }
 #contact-container input.save_button:hover { background-position: -166px bottom; }
 
+/* JWYSIWYG */ 
 
-
-
-
-
-div.wysiwyg { border: 1px solid #999; padding: 0; background: #fff url('/js/jswysiwyg/jquery.wysiwyg.bg.png') repeat-x top; }
+div.wysiwyg { border: 1px solid #999; padding: 0; background: #fff url('/js/jswysiwyg/jquery.wysiwyg.bg.png') repeat-x top; z-index: 99999999; width: 100px; float: left; margin-top: 20px; }
 div.wysiwyg * { margin: 0; padding: 0; }
 
 div.wysiwyg ul.toolbar li.jwysiwyg-custom-command { overflow: hidden; }
@@ -439,7 +435,9 @@ div.wysiwyg iframe { clear: left;
 -moz-box-shadow    :inset 0 0 10px rgba(0, 0, 0, 0.4);
 -webkit-box-shadow :inset 0 0 10px rgba(0, 0, 0, 0.4);
 box-shadow         :inset 0 0 10px rgba(0, 0, 0, 0.4);
-background-color:white; padding:0px; margin:0; display:block; width: 100%; }
+background-color:white; padding:0px; margin:0; display:block; width: 100%; height: 200px important!; }
+
+body.wysiwyg { padding: 10px; }
 
 /* dialog */
 .wysiwyg-dialog { position:fixed; top:50px; left:50px; width:450px; height:300px; background:transparent; font:14px "Helvetic Neue", Helvetica,Arial,sans-serif; }

@@ -1,45 +1,27 @@
 <script type="text/javascript" src="/js/jswysiwyg/jquery.wysiwyg.js"></script>
-<script type="text/javascript">
-$(function(){
-$('#wysiwyg').wysiwyg({
-    controls: {
-        strikeThrough: { visible: true },
-        underline: { visible: true },
-        subscript: { visible: true },
-        superscript: { visible: true },
-    },
- 		css: '/js/jswysiwyg/jquery.wysiwyg.css'
-
-});
-});
-</script>
 <div class="clear"></div>
 <div id="basic-modal-content"><div class="clear"></div>
-
-	<div class="clear"></div>
+<div class="clear"></div>
 <div id="contact-container">
 <h1>Modification: </h1>
 <%= form_tag(modification_path, :remote => true, :method => :put)%>
-
 <%= hidden_field(:modification, :mod_id, :class => 'mod_id') %>
 <%= hidden_field(:modification, :template_id, :class => 'template_id')%>
 <%= hidden_field(:modification, :build_id, :value => @build.id, :class => 'build_id')%>
 <%= hidden_field(:modification, :page_type, :value => 'design')%>
-
 <%= label(:name, 'Name: ') %>
 <%= text_field(:modification, :name, :class => 'mod_name') %>
-
 <%= label(:hours, 'Hours: ') %>
 <%= text_field(:modification, :hours, :class => 'mod_hours') %>
-
 <%= label(:description, 'Description: ') %>
-	<div class="clear"></div>
 <%= text_area(:modification, :description, :class => 'mod_description', :id => 'wysiwyg') %>
-	<div class="clear"></div>
+<div class="clear"></div>
 <%= label(:save, '') %>
 <%= submit_tag('',:id=>'save', :class => 'save_button') %>
 <div class="clear"></div>
 </form>
+<div class="clear"></div>
 </div>
 <br />
 </div>
+<div class="clear"></div>
