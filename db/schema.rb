@@ -11,13 +11,21 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120523192730) do
+ActiveRecord::Schema.define(:version => 20120606161259) do
 
   create_table "builds", :force => true do |t|
     t.integer  "contract_id"
     t.text     "saved_state"
     t.string   "hourly_rate"
     t.string   "cms_type"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  create_table "contract_additionals", :force => true do |t|
+    t.string   "follow_up"
+    t.string   "next_step"
+    t.integer  "contract_id"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
   end
@@ -38,13 +46,13 @@ ActiveRecord::Schema.define(:version => 20120523192730) do
     t.string   "name"
     t.string   "hours"
     t.string   "cost"
-    t.string   "description"
+    t.text     "description",  :limit => 255
     t.string   "cms_type"
     t.string   "feature_type"
     t.integer  "build_id"
     t.integer  "template_id"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
+    t.datetime "created_at",                  :null => false
+    t.datetime "updated_at",                  :null => false
   end
 
   create_table "modifications", :force => true do |t|
@@ -53,9 +61,9 @@ ActiveRecord::Schema.define(:version => 20120523192730) do
     t.string   "name"
     t.string   "hours"
     t.integer  "template_id"
-    t.string   "description"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.text     "description", :limit => 255
+    t.datetime "created_at",                 :null => false
+    t.datetime "updated_at",                 :null => false
   end
 
   create_table "professional_pages", :force => true do |t|
