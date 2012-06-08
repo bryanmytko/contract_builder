@@ -218,7 +218,7 @@ div.default_pages_form, div.additional_pages_form, div.widgets_show, div.add_fea
 div#admin_pages h1 {font-size: 24px; color: #0072bc; margin-bottom: 12px; }
 form#p_form { margin: 0 0 0 32px; }
 div.admin_record form#p_form input.image_upload {width: auto; margin: 14px 0 0 0; }
-div#new_design,div#admin_pages div.new_page { background: url(../img/admin_record_new_bg.png) 0 bottom #e4f2ff repeat-x; height: 147px; }
+div#new_design,div#admin_pages div.new_page { background: url(../img/admin_record_new_bg.png) 0 bottom #e4f2ff repeat-x; height: 387px; }
 div.add_user div#new_design,div.add_user div.new_page { background: none; height: auto; }
 div.admin_record input.page_add_button { width: 54px; height: 41px; background: url(../img/admin_controls_img.png) 0 0 no-repeat; margin: 12px 0 0 0;}
 div.admin_record input.page_add_button:hover { background-position: 0 bottom; cursor: pointer; }
@@ -234,7 +234,8 @@ margin-bottom: 6px;}
 div#admin_pages input { border: 0; }
 div#admin_pages textarea { border: 1px solid #bfbfbf; margin: 0 0 0 9px; height: 60px; width: 730px; padding: 3px; }
 div#admin_pages textarea.hidden_text_area { display: none; }
-div#admin_pages div.desc_box { padding: 0 0 20px 0; display: none; }
+textarea.wysiwyg-template { display: none; }
+div#admin_pages div.desc_box { padding: 0 0 20px 0; }
 div#admin_pages div.desc_new { display: block; }
 div#admin_pages a.add_desc { font-size: 13px; color: #0072bc; text-decoration: none; padding: 6px 0 20px 0; display: block; }
 
@@ -328,7 +329,8 @@ a.modification_button { display: block; margin: 0 0 0 32px; background: url(../i
 
 
 /* Container */
-#contact-container { text-align:left; width:450px; }
+#contact-container { text-align:left; width:450px; position: relative; }
+#contact-container a.x { position: absolute; top: -5px; right: -5px; display: block; cursor: pointer; width: 27px; height: 27px; background: url(../img/x.png) 0 0 no-repeat; }
 .contact-container-small { height: 510px; }
 .contact-container-large { height: 580px; }
 #contact-container .contact-content {background-color:#333; color:#ddd; height:40px;}
@@ -357,17 +359,23 @@ a.modification_button { display: block; margin: 0 0 0 32px; background: url(../i
 #contact-container a.modal-close:active,
 #contact-container a.modal-close:visited {color:#999; font-size:18px; font-weight:bold; position:absolute; text-decoration:none; right:8px; top:0px;}
 #contact-container a.modal-close:hover {color:#ccc;}
+
 #contact-container input.save_button { cursor: pointer; background: url(../img/build_buttons.png) -166px 0 no-repeat; height: 41px; width: 94px; border: 0; float: left; }
 #contact-container input.save_button:hover { background-position: -166px bottom; }
 
+#contact-container input.cancel_button { cursor: pointer; background: url(../img/cancel.png) 0 0 no-repeat; height: 41px; width: 124px; border: 0; float: left; margin-left: 12px; }
+#contact-container input.cancel_button:hover { background-position: 0 bottom; }
+
 /* JWYSIWYG */ 
+
+/*div.desc_box div.wysiwyg {width: 500px !important; }*/
 
 div.wysiwyg { border: 1px solid #999; padding: 0; background: #fff url('/js/jswysiwyg/jquery.wysiwyg.bg.png') repeat-x top; z-index: 99999999; width: 100px; float: left; margin-top: 20px; }
 div.wysiwyg * { margin: 0; padding: 0; }
 
 div.wysiwyg ul.toolbar li.jwysiwyg-custom-command { overflow: hidden; }
 
-div.wysiwyg ul.toolbar { border-bottom: 1px solid #ccc; float: left; width: 100%; padding: 0; }
+div.wysiwyg ul.toolbar { border-bottom: 1px solid #ccc; float: left; width: 80%; padding: 0; }
 div.wysiwyg ul.toolbar li { list-style: none; float: left; margin: 1px 2px 3px 0;  background: rgb(240, 240, 240); -moz-user-select: none; -webkit-user-select: none; user-select: none; clear: none; padding: 0 }
 div.wysiwyg ul.toolbar li.separator { background: none; width: 1px; height: 20px; margin: 0 4px 0px 5px; border: none; border-left: 1px solid #ccc; }
 div.wysiwyg ul.toolbar li { text-indent: -5000px; display: block; width: 18px; height: 18px; background: url('/js/jswysiwyg/jquery.wysiwyg.gif') no-repeat -640px -800px; border: 1px solid transparent; cursor: pointer; margin: 0px; }

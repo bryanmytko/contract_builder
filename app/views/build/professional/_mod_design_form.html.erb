@@ -2,6 +2,7 @@
 <div id="basic-modal-content"><div class="clear"></div>
 <div class="clear"></div>
 <div id="contact-container" class="contact-container-small">
+<!-- <a class="x"></a> -->
 <h1>Modification: </h1>
 <%= form_tag(modification_path, :remote => true, :method => :put) %>
 <%= hidden_field(:modification, :mod_id, :class => 'mod_id') %>
@@ -17,6 +18,7 @@
 <div class="clear"></div>
 <%= label(:save, '') %>
 <%= submit_tag('',:id=>'save', :class => 'save_button') %>
+<%= submit_tag('',:id=>'save', :class => 'cancel_button') %>
 <div class="clear"></div>
 </form>
 <div class="clear"></div>

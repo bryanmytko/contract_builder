@@ -10,6 +10,14 @@ $(document).ready(function(){
 		display_sums();
 	}
 	
+	$('a.x, a.cancel_button').click(function(){
+		
+		$.modal.close();
+		
+		return false;
+		
+	});
+	
 	$('.basic').click(function (e) {
 		
 		$('div#basic-modal-content').modal();
