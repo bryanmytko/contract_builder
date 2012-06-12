@@ -1,7 +1,3 @@
-console.log($(this))
-
-//$('.update_button').bind('ajax:success', function(data) {
-	
 	var pid = '<%= @page.id %>';
 	var hours = '<%= @page.hours %>';
 	var cost = '<%= @page.cost %>';
@@ -13,5 +9,3 @@ console.log($(this))
 	console.log('Description: ' + description);
 	
 	$('form#edit_professional_template_' + pid).fadeOut().fadeIn();
-
-//});

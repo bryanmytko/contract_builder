@@ -11,4 +11,8 @@ class CreateProfessionalPages < ActiveRecord::Migration
       t.timestamps
     end
   end
+  
+  def up
+      change_column :professional_pages, :description, :text
+  end
 end
