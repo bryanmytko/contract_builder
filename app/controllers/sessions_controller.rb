@@ -5,8 +5,16 @@ class SessionsController < ApplicationController
   end
   
   def create
+    
+    session[:admin] = nil
+    session[:user_id] = nil
+    
     user = User.authenticate(params[:email],params[:password])
+    admin = User.auth_admin(params[:email])
     if user
+      if admin
+        session[:admin] = user.email
+      end
         session[:user_id] = user.id
         session[:tab] = 'webready'
         redirect_to dashboards_path

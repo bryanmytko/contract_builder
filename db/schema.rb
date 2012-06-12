@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120612025851) do
+ActiveRecord::Schema.define(:version => 20120612153755) do
 
   create_table "builds", :force => true do |t|
     t.integer  "contract_id"
@@ -40,6 +40,7 @@ ActiveRecord::Schema.define(:version => 20120612025851) do
     t.string   "contract_type"
     t.datetime "created_at",    :null => false
     t.datetime "updated_at",    :null => false
+    t.string   "user_owner"
   end
 
   create_table "modification_pages", :force => true do |t|
@@ -104,6 +105,7 @@ ActiveRecord::Schema.define(:version => 20120612025851) do
     t.string   "password_salt"
     t.datetime "created_at",    :null => false
     t.datetime "updated_at",    :null => false
+    t.string   "user_type"
   end
 
 end

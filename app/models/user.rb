@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
 
-    attr_accessible :email, :password
+    attr_accessible :email, :password, :user_type
     attr_accessor :password
     
     before_save :encrypt_password
@@ -15,6 +15,15 @@ class User < ActiveRecord::Base
         else
             nil
         end
+    end
+    
+    def self.auth_admin(email)
+      user = find_by_email(email)
+      if user.user_type == 'admin'
+        user
+      else
+        nil
+      end
     end
     
     def encrypt_password

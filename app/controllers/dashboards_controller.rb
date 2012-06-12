@@ -2,9 +2,13 @@ class DashboardsController < ApplicationController
     
     def index
        @title = 'Dashboard'
-       @webready = Contract.find_all_by_contract_type('webready')
-       @professional = Contract.find_all_by_contract_type('professional')
-       session_check('index')
+       @webready = Contract.find(:all, 
+                                 :conditions => ["contract_type = ? and user_owner = ?",
+                                                 'webready', session[:user_id]])
+       @professional = Contract.find(:all, 
+                                     :conditions => ["contract_type = ? and user_owner = ?",
+                                                     'professional', session[:user_id]])
+        session_check('index')
     end
     
 end

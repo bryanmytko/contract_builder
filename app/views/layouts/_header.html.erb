@@ -24,7 +24,7 @@
             <ul id="header_navigation">
                 <% if current_user %>
                     <li><%= link_to "Dashboard", dashboards_path %></li> | 
-                    <% if current_user.email == "admin" %>
+                    <% if session[:admin] %>
                     <li><%= link_to "Admin", admin_root_path %></li> | 
                     <% end %>
                     <li><%= link_to "Logout", log_out_path %></li>

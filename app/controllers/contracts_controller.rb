@@ -6,6 +6,7 @@ class ContractsController < ApplicationController
     end
 
     def create
+        params[:contract][:user_owner] = session[:user_id]
         @contract = Contract.new(params[:contract])
         if @contract.save
           redirect_to build_new_path(:id => @contract.id)
