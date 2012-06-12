@@ -11,8 +11,4 @@ class CreateModifications < ActiveRecord::Migration
       t.timestamps
     end
   end
-  
-  def up
-      change_column :modifications, :description, :text
-  end
 end

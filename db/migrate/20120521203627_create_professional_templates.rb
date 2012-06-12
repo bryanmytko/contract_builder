@@ -7,9 +7,6 @@ class CreateProfessionalTemplates < ActiveRecord::Migration
       t.string :description
 
       t.timestamps
-    end
-  end
-  def up
-      change_column :professional_templates, :description, :text
+    end 
   end
 end

@@ -10,6 +10,8 @@ class CreateContracts < ActiveRecord::Migration
       t.string :contract_type
 
       t.timestamps
+      
+      
     end
   end
 end

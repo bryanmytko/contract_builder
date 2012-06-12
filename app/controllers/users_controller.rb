@@ -3,12 +3,7 @@ class UsersController < ApplicationController
   #Used to create users. Not implemented yet. 
   
   def new
-   # if(User.find_by_id(1))
-  #  else 
-  @user = User.create
-     # @user = User.create(:id => '1')
-   # end
-#   abort()
+
   end
   
   def create
