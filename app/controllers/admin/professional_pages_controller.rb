@@ -48,11 +48,10 @@ class Admin::ProfessionalPagesController < ApplicationController
 	end
 
 	def update
+	  logger.debug '#Params: ' + params.inspect + '###'
 		@page = ProfessionalPage.find(params[:id])
 		@page.update_attributes(params[:professional_page])
-		respond_to do |format|    
-			format.js
-		end
+		render :template => 'admin/professional_pages/update'
 	end
 
 end

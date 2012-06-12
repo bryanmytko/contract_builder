@@ -1,20 +1,17 @@
-$('.update_button').bind('ajax:success', function(data) {
+console.log($(this))
 
-	$(this).closest('form').fadeOut().fadeIn();
+//$('.update_button').bind('ajax:success', function(data) {
 	
-	var id = $(this).parent().parent().find('#professional_page_id').val();
-	var hours = $(this).parent().parent().find('#professional_page_hours').val();
-	var n = $(this).parent().parent().find('#professional_page_name').val();
-	var cost = $(this).parent().parent().find('#professional_page_cost').val();
-	var description = $(this).parent().parent().find('textarea').val();
+	var pid = '<%= @page.id %>';
+	var hours = '<%= @page.hours %>';
+	var cost = '<%= @page.cost %>';
+	var description = '<%=j @page.description.to_s %>';
 	
-	$.ajax({
-		url: "professional_pages/" + id,
-		type: 'put',
-		data: '&professional_page[hours]=' + hours + '&professional_page[name]=' + n + '&professional_page[cost]=' + cost + '&professional_page[description]=' + description,
-		success: function(){
-			$('.update_button').unbind()
-		}
-	});
+	console.log('ID: ' + pid);
+	console.log('Hours: ' + hours);
+	console.log('Cost: ' + cost);
+	console.log('Description: ' + description);
 	
-});
+	$('form#edit_professional_template_' + pid).fadeOut().fadeIn();
+
+//});

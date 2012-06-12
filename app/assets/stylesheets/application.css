@@ -233,8 +233,8 @@ margin-bottom: 6px;}
 /* Admin Pages */
 div#admin_pages input { border: 0; }
 div#admin_pages textarea { border: 1px solid #bfbfbf; margin: 0 0 0 9px; height: 60px; width: 730px; padding: 3px; }
-div#admin_pages textarea.hidden_text_area { display: none; }
-textarea.wysiwyg-template { display: none; }
+/*div#admin_pages textarea.hidden_text_area { display: none; }*/
+/*textarea.wysiwyg-template { display: none; }*/
 div#admin_pages div.desc_box { padding: 0 0 20px 0; }
 div#admin_pages div.desc_new { display: block; }
 div#admin_pages a.add_desc { font-size: 13px; color: #0072bc; text-decoration: none; padding: 6px 0 20px 0; display: block; }

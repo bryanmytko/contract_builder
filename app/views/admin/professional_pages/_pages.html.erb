@@ -1,6 +1,6 @@
 <div class="admin_record admin_edit">
 	
-<%= form_for [:admin, t], :remote => true, :html => { :class => 'update', :method => :put } do |f| %>
+<%= form_for [:admin, t], :id => 'asdfasdf', :remote => true, :html => { :id => 'aasdfasdf', :class => 'update', :method => :put } do |f| %>
 
 		<%= f.hidden_field(:id, :class => 'template_id') %>
 
@@ -21,14 +21,19 @@
 		</div>
 	
 		<%= link_to '', admin_professional_page_path(f.object.id), :method => :delete, :remote => true, :class => 'delete_button' %>
-		<%= link_to '', admin_professional_page_path(f.object.id), :method => :put, :remote => true, :class => 'update_button' %>
+		<%= submit_tag('', :class => 'update_button') %>
+		
+		
+		<!--# '', admin_professional_page_path(f.object.id), :method => :put, :remote => true, :class => 'update_button' %>-->
 	
 		<div class="clear"></div>
 	
-		<%= link_to 'Edit Description', '', :remote => true, :class => 'add_desc' %>
+		<%#= link_to 'Edit Description', '', :remote => true, :class => 'add_desc' %>
 	
 		<div class="desc_box" style="display: block;">
-		<%= f.text_area(:description, :class => 'hidden_text_area') %>
+			<%= f.label(:description, 'Description: ') %>
+			<%= f.text_area(:description, :class => 'wysiwyg-template') %>
+			<div class="clear"></div>
 		</div>
 	
 		<% end %>

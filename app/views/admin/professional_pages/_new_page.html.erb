@@ -29,8 +29,9 @@
 	<div class="clear"></div>
 	
 	<div class="desc_new desc_box">
-	<%= n.label(:description, 'Description: ') %>
-	<%= n.text_area(:description) %>
+		<%= n.label(:description, 'Description: ') %>
+		<%= n.text_area(:description, :class => 'wysiwyg-template') %>
+		<div class="clear"></div>
 	</div>
 
 	<% end %>

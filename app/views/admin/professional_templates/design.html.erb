@@ -1,4 +1,3 @@
-
 <div id="admin_pages" class="page_pages">
 <h1>Design Section</h1>
 	<div class="default_show default_pages_form">
@@ -27,11 +26,11 @@
 		
 		<div class="clear"></div>
 		
-		<%= link_to 'Edit Description', '', :remote => true, :class => 'add_desc' %>
+		<%#= link_to 'Edit Description', '', :remote => true, :class => 'add_desc' %>
 		
 
 		<div class="desc_new desc_box">
-		<%#= f.label(:description, 'Description: ') %>
+		<%= f.label(:description, 'Description: ') %>
 		<%= f.text_area(:description, :class => 'wysiwyg-template') %>
 		<div class="clear"></div>
 		</div>
