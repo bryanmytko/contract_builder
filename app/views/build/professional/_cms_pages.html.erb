@@ -13,7 +13,7 @@
 							<% v.each do |m| %>
 								<% if f == m.feature_type %>
 								<tr>
-									<input type="hidden" value="<%= apply_mods('cms','description', m.name, m.id.to_s) %>" class="description" />
+									<input type="hidden" value="<%= m.description %>" class="description" />
 									<input value="<%= m.id.to_s %>" type="hidden" class="template_id template_page_id">
 									<input value="<%= m.feature_type %>" type="hidden" class="feature_type">
 									<input value="<%= m.cms_type %>" type="hidden" class="cms_type" />

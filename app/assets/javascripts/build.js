@@ -67,6 +67,7 @@ $(document).ready(function(){
 		var mod_cost = tbl.find('span.cms_price_text').html();
 
 		var mod_description = tbl.find('input.description').val();
+
 		var mod_id = tbl.find('input.get_modification_id').val();
 		var template_id = tbl.find('input.template_id').val();
 		var cms_type = tbl.find('input.cms_type').val();
@@ -79,7 +80,7 @@ $(document).ready(function(){
 		$('div#basic-modal-content-pages input.mod_id').val(mod_id);
 		$('div#basic-modal-content-pages input.cms_type').val(cms_type);
 		$('div#basic-modal-content-pages input.feature_type').val(feature_type);
-		$('div#basic-modal-content-pages textarea.mod_description').text(mod_description.replace('"','\''));
+		$('div#basic-modal-content-pages textarea.mod_description').text(mod_description);
 		$('div#basic-modal-content-pages div#contact-container input.template_id').val(template_id);
 		
 		$('#wysiwygPage').wysiwyg({

@@ -3,9 +3,11 @@
 	var cost = '<%= @page.cost %>';
 	var description = '<%=j @page.description.to_s %>';
 	
-	console.log('ID: ' + pid);
-	console.log('Hours: ' + hours);
-	console.log('Cost: ' + cost);
-	console.log('Description: ' + description);
+//	console.log('ID: ' + pid);
+//	console.log('Hours: ' + hours);
+//	console.log('Cost: ' + cost);
+//	console.log('Description: ' + description);
 	
-	$('form#edit_professional_template_' + pid).fadeOut().fadeIn();
+	$('form#edit_professional_page_' + pid).fadeOut().fadeIn();
+	
+	

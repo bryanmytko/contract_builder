@@ -22,7 +22,7 @@
 		</div>
 		
 		<%= link_to '', admin_professional_template_path(f.object.id), :method => :delete, :remote => true, :class=>'delete_button' %>
-		<%= link_to '', admin_professional_template_path(f.object.id), :method => :put, :remote => true, :class=>'update_button' %>
+		<%= submit_tag('', :class => 'update_button') %>
 		
 		<div class="clear"></div>
 		
