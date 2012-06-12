@@ -9,7 +9,8 @@
 	  <th><a href="#" rel="sort" class="next_step">Next Step</a></th><th>&nbsp;</th>
 	</tr>
 
-	<% if(@professional) @professional.each do |w| %>
+	<% if(@professional != nil) 
+		@professional.each do |w| %>
 
 	<tr>
 

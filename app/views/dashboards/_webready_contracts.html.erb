@@ -9,7 +9,8 @@
 	  <th><a href="#" rel="sort" class="next_step">Next Step</a></th><th>&nbsp;</th>
 	</tr>
 
-	<% if(@webready) @webready.each do |w| %>
+	<% if(@webready != nil)
+		@webready.each do |w| %>
 
 	<tr>
 		<td><%= link_to "",edit_build_path(:id => w.id), :class => "dashboard_edit" %></td>
