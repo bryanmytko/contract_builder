@@ -47,7 +47,7 @@ ActiveRecord::Schema.define(:version => 20120612153755) do
     t.string   "name"
     t.string   "hours"
     t.string   "cost"
-    t.text     "description",  :limit => 255
+    t.text     "description"#,  :limit => 255
     t.string   "cms_type"
     t.string   "feature_type"
     t.integer  "build_id"
@@ -62,7 +62,7 @@ ActiveRecord::Schema.define(:version => 20120612153755) do
     t.string   "name"
     t.string   "hours"
     t.integer  "template_id"
-    t.text     "description", :limit => 255
+    t.text     "description"#, :limit => 255
     t.datetime "created_at",                 :null => false
     t.datetime "updated_at",                 :null => false
   end
@@ -73,7 +73,7 @@ ActiveRecord::Schema.define(:version => 20120612153755) do
     t.string   "cost"
     t.string   "cms_type"
     t.string   "feature_type"
-    t.text     "description",  :limit => 255
+    t.text     "description"#,  :limit => 255
     t.datetime "created_at",                  :null => false
     t.datetime "updated_at",                  :null => false
   end
@@ -82,7 +82,7 @@ ActiveRecord::Schema.define(:version => 20120612153755) do
     t.string   "name"
     t.string   "hours"
     t.string   "page_type"
-    t.text     "description", :limit => 255
+    t.text     "description"#, :limit => 255
     t.datetime "created_at",                 :null => false
     t.datetime "updated_at",                 :null => false
   end

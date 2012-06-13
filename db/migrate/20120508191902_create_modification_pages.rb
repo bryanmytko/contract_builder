@@ -4,7 +4,7 @@ class CreateModificationPages < ActiveRecord::Migration
       t.string :name
       t.string :hours
       t.string :cost
-      t.string :description
+      t.text :description
       t.string :cms_type
       t.string :feature_type
       t.integer :build_id

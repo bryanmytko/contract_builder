@@ -6,7 +6,7 @@ class CreateModifications < ActiveRecord::Migration
       t.string :name
       t.string :hours
       t.integer :template_id
-      t.string :description
+      t.text :description
 
       t.timestamps
     end

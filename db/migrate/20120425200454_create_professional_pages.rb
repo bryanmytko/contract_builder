@@ -6,7 +6,7 @@ class CreateProfessionalPages < ActiveRecord::Migration
       t.string :cost
       t.string :cms_type
       t.string :feature_type
-      t.string :description
+      t.text :description
 
       t.timestamps
     end

@@ -4,7 +4,7 @@ class CreateProfessionalTemplates < ActiveRecord::Migration
       t.string :name
       t.string :hours
       t.string :page_type
-      t.string :description
+      t.text :description
 
       t.timestamps
     end 
