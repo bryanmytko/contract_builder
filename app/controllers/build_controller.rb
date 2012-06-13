@@ -18,7 +18,7 @@ class BuildController < ApplicationController
 		#Get modifications, if any
 		unless @build.nil?
 		@modifications = Modifications.find_all_by_build_id(@build.id)
-		#@modification_pages = ModificationPages.find_all_by_build_id(@build.id)
+		@modification_pages = ModificationPages.find_all_by_build_id(@build.id)
 	  end
 		
 		@cms = { 'webmodulite' => @webmodulite, 'magento' => @magento, 'wordpress' => @wordpress }
