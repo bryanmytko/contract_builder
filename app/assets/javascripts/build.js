@@ -133,11 +133,13 @@ $(document).ready(function(){
 	var qa_coeff = 0.05;
 	var planning_coeff = 0.1;
 	
-	$('input').focus(function(){
+	var proInput = $('div#pro_build_design input')
+	
+	proInput.focus(function(){
 		if($(this).val() == '0') $(this).val('');
 	});
 	
-	$('input').blur(function(){
+	proInput.blur(function(){
 		if($(this).val() == '') $(this).val('0');
 	});
 	
