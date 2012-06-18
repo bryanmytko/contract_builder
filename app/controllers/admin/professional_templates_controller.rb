@@ -10,6 +10,9 @@ class Admin::ProfessionalTemplatesController < ApplicationController
 	def create
 		@template = ProfessionalTemplate.new(params[:professional_template])
 		@template.save
+		respond_to do |format|  
+      format.js
+    end
 	end
 
 	def destroy
