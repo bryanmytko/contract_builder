@@ -1,41 +1,33 @@
-$('form#p_form').bind('ajax:complete', function(){
-	
-	function htmlDecode(input){
-	  var e = document.createElement('div');
-	  e.innerHTML = input;
-	  return e.childNodes[0].nodeValue;
-	}
+function htmlDecode(input){
+  var e = document.createElement('div');
+  e.innerHTML = input;
+  return e.childNodes[0].nodeValue;
+}
 
-	var id = '<%= @template.id %>';
-	var hours = '<%= @template.hours %>';
-	var n = '<%= @template.name %>';
-	var description = '<%=j @template.description.to_s %>';
+console.log('starting...')
 
-	$('div#new_records').append('<div class="admin_record admin_edit"><form accept-charset="UTF-8" action="/admin/professional_templates/' + id + '" class="update" data-remote="true" id="edit_professional_template_' + id + '" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="✓"><input name="_method" type="hidden" value="delete"><input name="authenticity_token" type="hidden" value="iLejeHNQgQ86gf0CgXjO4j5seH4VH8I9ThhwxpE8sws="></div><input class="template_id" id="professional_template_id" name="professional_template[id]" type="hidden" value="' + id + '"><label for="professional_template_name">Name: </label><div class="input_wrapper_name"><input class="name" id="professional_template_name" name="professional_template[name]" size="30" type="text" value="' + n + '"></div><label for="professional_template_hours">Design Hours: </label><div class="input_wrapper"><input id="professional_template_hours" name="professional_template[hours]" size="30" type="text" value="' + hours + '"></div><a href="/admin/professional_templates/' + id + '" class="delete_button" data-method="delete" data-remote="true" rel="nofollow"></a><a href="/admin/professional_templates/' + id + '" class="update_button" data-method="put" data-remote="true" rel="nofollow"></a><div class="clear"></div><div class="desc_box" style="display: block;"><label for="professional_template_description">Description: </label><textarea class="wysiwyg-template hidden_text_area" cols="40" id="professional_template_description" name="professional_template[description]" rows="20">' + htmlDecode(description) + '</textarea><div class="clear"></div></div></form></div>');
-	
-	$(this).find('input, textarea').val('');
-	
-	$('.wysiwyg-template').wysiwyg('destroy');
-	
-	$('.wysiwyg-template').wysiwyg({
-		 controls: {
-		     strikeThrough: { visible: true },
-		     underline: { visible: true },
-		     subscript: { visible: true },
-		     superscript: { visible: true },
-		 },
-		css: '/js/jswysiwyg/jquery.wysiwyg.css',
-		formHeight: 30,
-		formWidth: 500,
-		css: { padding: '10px 10px' },
-		initialContent: ''
+var id = '<%= @template.id %>';
+var hours = '<%= @template.hours %>';
+var n = '<%= @template.name %>';
+var description = '<%=j @template.description.to_s %>';
+var curW = $('div.new_page_form .wysiwyg-template');
 
-	});
-	
-	
-	var a = $('div.new_page_form .wysiwyg-template');
-	a.wysiwyg('clear');
-	//console.log($('body.wysiwyg').html());
-//	$('body.wysiwyg').remove();
-		
+$('div#new_records').append('<div class="admin_record admin_edit"><form accept-charset="UTF-8" action="/admin/professional_templates/' + id + '" class="update" data-remote="true" id="edit_professional_template_' + id + '" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="✓"><input name="_method" type="hidden" value="delete"><input name="authenticity_token" type="hidden" value="iLejeHNQgQ86gf0CgXjO4j5seH4VH8I9ThhwxpE8sws="></div><input class="template_id" id="professional_template_id" name="professional_template[id]" type="hidden" value="' + id + '"><label for="professional_template_name">Name: </label><div class="input_wrapper_name"><input class="name" id="professional_template_name" name="professional_template[name]" size="30" type="text" value="' + n + '"></div><label for="professional_template_hours">Design Hours: </label><div class="input_wrapper"><input id="professional_template_hours" name="professional_template[hours]" size="30" type="text" value="' + hours + '"></div><a href="/admin/professional_templates/' + id + '" class="delete_button" data-method="delete" data-remote="true" rel="nofollow"></a><a href="/admin/professional_templates/' + id + '" class="update_button" data-method="put" data-remote="true" rel="nofollow"></a><div class="clear"></div><div class="desc_box" style="display: block;"><label for="professional_template_description">Description: </label><textarea class="wysiwyg_' + id + ' hidden_text_area" cols="40" id="professional_template_description" name="professional_template[description]" rows="20">' + htmlDecode(description) + '</textarea><div class="clear"></div></div></form></div>');
+
+$('form#new_professional_template').find('input:not(:hidden), textarea').val('');
+curW.wysiwyg('clear');
+
+$('.wysiwyg_' + id).wysiwyg({
+	 controls: {
+	     strikeThrough: { visible: true },
+	     underline: { visible: true },
+	     subscript: { visible: true },
+	     superscript: { visible: true },
+	 },
+	css: '/js/jswysiwyg/jquery.wysiwyg.css',
+	formHeight: 30,
+	formWidth: 500,
+	css: { padding: '10px 10px' },
+	initialContent: ''
+
 });

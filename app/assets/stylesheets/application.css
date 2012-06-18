@@ -216,7 +216,7 @@ div.admin_record .delete_button:hover { background-position: right bottom; curso
 div.admin_record form.update { margin: 0 0 0 32px; }
 div.default_pages_form, div.additional_pages_form, div.widgets_show, div.add_features_show {  border-top: 5px solid #0072bc; }
 div#admin_pages h1 {font-size: 24px; color: #0072bc; margin-bottom: 12px; }
-form#p_form { margin: 0 0 0 32px; }
+form.p_form { margin: 0 0 0 32px; }
 div.admin_record form#p_form input.image_upload {width: auto; margin: 14px 0 0 0; }
 div#new_design,div#admin_pages div.new_page { background: url(../img/admin_record_new_bg.png) 0 bottom #e4f2ff repeat-x; height: 387px; }
 div.add_user div#new_design,div.add_user div.new_page { background: none; height: auto; }

@@ -43,7 +43,7 @@
 	<div id="new_records"></div>
 	<div class="new_page_form new_page admin_record">
 
-	<%= form_for [:admin, @new_template], :remote => true, :url => admin_professional_templates_path, :html => { :id => 'p_form'} do |n| %>
+	<%= form_for [:admin, @new_template], :remote => true, :url => admin_professional_templates_path, :html => { :class => 'p_form' } do |n| %>
 
 	<%= n.hidden_field(:page_type, :value => 'front_end') %>
 	<%= n.label(:name, 'Name: ') %>

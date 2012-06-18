@@ -3,7 +3,7 @@
 
 	<%= form_for [:admin, @new_page], :remote => true, 
 																		:url => admin_professional_pages_path, 
-																		:html => { :id => 'p_form'} do |n| 
+																		:html => { :class => 'p_form', :id => f.gsub(' ','_')} do |n| 
 	%>
 
 	<%= n.hidden_field(:feature_type, :value => f) %>
@@ -30,7 +30,7 @@
 	
 	<div class="desc_new desc_box">
 		<%= n.label(:description, 'Description: ') %>
-		<%= n.text_area(:description, :class => 'wysiwyg-template') %>
+		<%= n.text_area(:description, :class => 'wysiwyg-template creation_area') %>
 		<div class="clear"></div>
 	</div>
 

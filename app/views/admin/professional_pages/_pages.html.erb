@@ -1,6 +1,8 @@
+
+
 <div class="admin_record admin_edit">
 	
-<%= form_for [:admin, t], :id => 'asdfasdf', :remote => true, :html => { :class => 'update', :method => :put } do |f| %>
+<%= form_for [:admin, t], :remote => true, :html => { :class => 'update', :method => :put } do |f| %>
 
 		<%= f.hidden_field(:id, :class => 'template_id') %>
 
@@ -32,7 +34,7 @@
 	
 		<div class="desc_box" style="display: block;">
 			<%= f.label(:description, 'Description: ') %>
-			<%= f.text_area(:description, :class => 'wysiwyg-template') %>
+			<%= f.text_area(:description, :class => 'wysiwyg-template creation_template') %>
 			<div class="clear"></div>
 		</div>
 	
