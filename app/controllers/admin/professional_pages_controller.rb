@@ -33,10 +33,19 @@ class Admin::ProfessionalPagesController < ApplicationController
 
 	def create
 		@page = ProfessionalPage.new(params[:professional_page])
-		@page.save
-		respond_to do |format|    
-			format.js
-		end
+		if @page.save
+		  respond_to do |format|    
+  			format.js
+  		end
+  	else
+  	  @page.errors.full_messages.each do |msg|
+        logger.debug "error: " + msg
+        logger.debug @page.errors.inspect
+        respond_to do |format|    
+    			error.js
+    		end
+      end
+  	end
 	end
 	
 	def destroy

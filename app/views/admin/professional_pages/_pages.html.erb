@@ -17,10 +17,10 @@
 		<%= f.text_field(:hours) %>
 		</div>
 		
-		<%= f.label(:cost, 'Cost: ') %>
-		<div class="input_wrapper">
-		<%= f.text_field(:cost) %>
-		</div>
+		<%#= f.label(:cost, 'Cost: ') %>
+		<!--<div class="input_wrapper">-->
+		<%= f.hidden_field(:cost, :value => '0') %>
+		<!--</div>-->
 	
 		<%= link_to '', admin_professional_page_path(f.object.id), :method => :delete, :remote => true, :class => 'delete_button' %>
 		<%= submit_tag('', :class => 'update_button') %>

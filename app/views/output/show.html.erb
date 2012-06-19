@@ -12,7 +12,8 @@ design_cost = (design_hours.to_i * @build.hourly_rate.to_i)
 frontend_hours = get_hours('frontend')
 frontend_cost = (frontend_hours.to_i * @build.hourly_rate.to_i)
 cms_hours = get_cms_hours()
-cms_cost = get_cms_cost()
+#cms_cost = get_cms_cost()
+cms_cost = (cms_hours.to_i * @build.hourly_rate.to_i)
 
 stotal_hours = design_hours + frontend_hours + cms_hours
 stotal_price = design_cost + frontend_cost + cms_cost

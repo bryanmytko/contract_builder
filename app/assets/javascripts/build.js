@@ -64,7 +64,7 @@ $(document).ready(function(){
 		var tbl = $(this).parents('tr');
 		var mod_name = tbl.find('p.name_text').html();
 		var mod_hours = tbl.find('span.hours_text').html();
-		var mod_cost = tbl.find('span.cms_price_text').html();
+	//	var mod_cost = tbl.find('span.cms_price_text').html();
 
 		var mod_description = tbl.find('input.description').val();
 
@@ -75,7 +75,7 @@ $(document).ready(function(){
 
 		$('div#basic-modal-content-pages input.mod_build_id').val(build_id);
 		$('div#basic-modal-content-pages input.mod_name').val(mod_name);
-		$('div#basic-modal-content-pages input.mod_cost').val(mod_cost);
+		//$('div#basic-modal-content-pages input.mod_cost').val(mod_cost);
 		$('div#basic-modal-content-pages input.mod_hours').val(mod_hours);
 		$('div#basic-modal-content-pages input.mod_id').val(mod_id);
 		$('div#basic-modal-content-pages input.cms_type').val(cms_type);
@@ -188,6 +188,7 @@ $(document).ready(function(){
 					design_htotal += val * q;
 				}	
 			});
+			
 			/* Front End Totals */
 			frontend_ptotal = 0;
 			frontend_htotal = 0;
@@ -211,10 +212,16 @@ $(document).ready(function(){
 			cms_inputs.each(function(){
 				if ($(this).is(':checked')) {
 					var h = parseInt($(this).parents('tr').find('span.cms_hours_text').html());
-					var p = parseInt($(this).parents('tr').find('span.cms_price_text').html());
-					if(!isNaN(h)) cms_htotal += h;
-					if(!isNaN(p)) cms_ptotal += p;
+				//	var p = parseInt($(this).parents('tr').find('span.cms_price_text').html());
+					if(!isNaN(h)) {
+						cms_htotal += h;
+						cms_ptotal += h * hourly_rate;
+					}
+					
+					$(this).parents('tr').find('span.cms_price_text').html(h * hourly_rate);
 				}
+				else
+					$(this).parents('tr').find('span.cms_price_text').html('0');
 			});
 
 			design_total_display_price.html(design_ptotal);

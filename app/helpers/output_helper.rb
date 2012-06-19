@@ -64,6 +64,7 @@ module OutputHelper
     unless @build.cms_type.nil?
       @cms[@build.cms_type].each do |c|
         if(is_cms_selected(c.name))
+          c = check_cms_mod(c)
           hours += c.hours.to_i
         end
       end

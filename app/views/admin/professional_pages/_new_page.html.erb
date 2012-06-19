@@ -19,10 +19,10 @@
 	<%= n.text_field(:hours, :class => 'inhours') %>
 	</div>
 	
-	<%= n.label(:cost) %>
-	<div class="input_wrapper">
-	<%= n.text_field(:cost, :class => 'inhours') %>
-	</div>
+<!--	<%#= n.label(:cost) %>
+	<div class="input_wrapper">-->
+	<%= n.hidden_field(:cost, :class => 'inhours', :value => '0') %>
+	<!--</div>-->
 	
 	<%= submit_tag('', :class => 'page_add_button') %>
 	
